@@ -13,5 +13,5 @@ Tower defense is a strategy game. There are separate waves of monsters with dist
 
 
 # Meetings
-Every thursday at 15.40
+Every thursday at 15.40  
 -29.09.16 meeting done.
