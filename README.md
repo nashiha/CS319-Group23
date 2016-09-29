@@ -1,10 +1,10 @@
 # CS319-Group23
 
 Group members:  
-1- Nashiha Ahmed
-2- İzel Gürbüz 
-3- Efe Ulaş Akay Seyitoğlu
-4- Erkam Berker Şenol 
+1- Nashiha Ahmed  
+2- İzel Gürbüz   
+3- Efe Ulaş Akay Seyitoğlu  
+4- Erkam Berker Şenol   
 
 # Project:
 Our project is a "Tower Defense" type game. It will be a Java desktop application. 
