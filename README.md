@@ -17,3 +17,8 @@ In our game, there are separate "waves" of monsters with distinct powers and lif
 # Meetings
 Every Thursday at 15.40  
 -29.09.16 meeting done: Project description done & GitHub home page created.
+-06.10.16 meeting: Started Analysis part 1
+-13.10.16 meeting: Met second time for Analysis part 1
+-20.10.16 meeting: Started Analysis part 2
+-25.10.16 meeting: Prepared Object & Class diagram together for Analysis part 2
+-27.10.16 meeting: Prepared other diagrams for Analysis part 2
