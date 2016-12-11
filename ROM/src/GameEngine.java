@@ -2,7 +2,7 @@ public class GameEngine {
 
 	private int score;
 	private int waveNo;
-	private list highScores;
+	private int[] highScores;
 	private int gameStatus;
 	private int coinCount;
 	private int difficulty;
@@ -54,7 +54,7 @@ public class GameEngine {
 		throw new UnsupportedOperationException();
 	}
 
-	public List updateHighScore() {
+	public int[] updateHighScore() {
 		// TODO - implement GameEngine.updateHighScore
 		throw new UnsupportedOperationException();
 	}
