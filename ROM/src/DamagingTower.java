@@ -1,5 +1,6 @@
-public class DamageTower extends Tower {
-    public DamageTower(Point location){
+public class DamagingTower extends Tower {
+
+    public DamagingTower(Point location){
         super(location);
         range = 100;
         damage = 50;
