@@ -4,9 +4,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by Seyitoglu on 12.12.2016.
- */
 public class HighScorePanel extends JFrame {
 
     private BackgroundImagePanel initialPanel;
