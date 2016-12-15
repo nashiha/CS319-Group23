@@ -9,7 +9,7 @@ public class MainFrame {
 	public JFrame frame;
 	public MainMenuPanel panel;
 	public void createFrame() {
-		frame = new JFrame( "Reedemers of the Monarchy");
+		frame = new JFrame( "Redeemers of the Monarchy");
 		frame.setDefaultCloseOperation( frame.EXIT_ON_CLOSE);
 		frame.setMinimumSize( new Dimension(1016,602));
 		panel = new MainMenuPanel();
