@@ -14,16 +14,16 @@ public class HighScorePanel extends JFrame {
         //Instance Variables
         JButton addButton;
         //Close The Panel
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         //TextFields
-        JTextField nameField = new JTextField(8);
-        JTextField lastNameField = new JTextField(8);
+        final JTextField nameField = new JTextField(8);
+        final JTextField lastNameField = new JTextField(8);
         JTextField scoreField = new JTextField(8);
         addButton = new JButton("ADD");
 
         //Activation of the internal panel
         JPanel buttonAndTextFieldPanel = new JPanel();
-        buttonAndTextFieldPanel.setBackground(Color.CYAN);
+        buttonAndTextFieldPanel.setBackground(Color.cyan);
         buttonAndTextFieldPanel.setVisible(true);
 
         buttonAndTextFieldPanel.add(nameField);
@@ -44,7 +44,7 @@ public class HighScorePanel extends JFrame {
         demo[0][1] = "Last Name";
         demo[0][2] = "Score";
 
-        DefaultTableModel myModel = new DefaultTableModel(demo,headers);
+        final DefaultTableModel myModel = new DefaultTableModel(demo,headers);
         highScoreTable.setModel(myModel);
 
         initialPanel.add(addButton);
