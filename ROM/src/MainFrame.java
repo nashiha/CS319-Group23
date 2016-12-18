@@ -7,16 +7,17 @@ import javax.swing.JPanel;
  */
 public class MainFrame {
 	public JFrame frame;
-	public MainMenuPanel panel;
+	public GamePanel panel;//MainMenuPanel panel;
 	public void createFrame() {
 		frame = new JFrame( "Redeemers of the Monarchy");
 		frame.setDefaultCloseOperation( frame.EXIT_ON_CLOSE);
-		frame.setMinimumSize( new Dimension(1016,602));
-		panel = new MainMenuPanel();
+		frame.setMinimumSize( new Dimension(1006,590));
+		panel = new GamePanel();//new MainMenuPanel();
 		frame.add( panel);
 		frame.pack();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible( true);
+		frame.setResizable(false);
 	}
 	public static void main(String[] args )
 	{

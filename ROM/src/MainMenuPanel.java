@@ -6,7 +6,7 @@ import javax.swing.*;
  */
 public class MainMenuPanel extends JPanel {
 	Image background;
-	private JButton button1;
+	private JButton play;
 	private JButton settings;
 	private JButton tutorial;
 	private JButton hscores;
@@ -18,63 +18,63 @@ public class MainMenuPanel extends JPanel {
 		background = new ImageIcon(this.getClass().getResource("images/Menu_main_no_buttons.png")).getImage();
 
 		//play
-		button1 = new JButton();
-		button1.setOpaque(false);
-		//button1.setBorderPainted(false);
-		button1.setContentAreaFilled(false);
-		button1.setIcon(new ImageIcon(this.getClass().getResource("images/play.png")));
-		button1.setAlignmentX(Component.CENTER_ALIGNMENT);
+		play = new JButton();
+		play.setOpaque(false);
+		play.setBorderPainted(false);
+		play.setContentAreaFilled(false);
+		play.setIcon(new ImageIcon(this.getClass().getResource("images/play.png")));
+		play.setRolloverIcon(new ImageIcon(this.getClass().getResource("images/play_hover.png")));
+		play.setAlignmentX(Component.CENTER_ALIGNMENT);
 
 		//settings
 		settings = new JButton();
-		settings.setIcon(new ImageIcon(this.getClass().getResource("images/settings.png")));
+		settings.setIcon(new ImageIcon(this.getClass().getResource("images/settings_button.png")));
 		settings.setOpaque(false);
-		settings.setRolloverIcon(new ImageIcon(this.getClass().getResource("images/tutorial.png")));
-		settings.setPressedIcon(new ImageIcon(this.getClass().getResource("images/tutorial.png")));
-		//settings.setBorderPainted(false);
+		settings.setRolloverIcon(new ImageIcon(this.getClass().getResource("images/settings_button_hover.png")));
+		settings.setBorderPainted(false);
 		settings.setContentAreaFilled(false);
 		settings.setAlignmentX(Component.CENTER_ALIGNMENT);
 		//tutorial
 		tutorial = new JButton();
-		tutorial.setIcon(new ImageIcon(this.getClass().getResource("images/tutorial.png")));
+		tutorial.setIcon(new ImageIcon(this.getClass().getResource("images/tutorialbutton.png")));
 		tutorial.setOpaque(false);
-		//tutorial.setBorderPainted(false);
+		tutorial.setRolloverIcon(new ImageIcon(this.getClass().getResource("images/tutorialbutton_hover.png")));
+		tutorial.setBorderPainted(false);
 		tutorial.setContentAreaFilled(false);
 		tutorial.setAlignmentX(Component.CENTER_ALIGNMENT);
 		//highscores
 		hscores = new JButton();
-		hscores.setIcon(new ImageIcon(this.getClass().getResource("images/hscores.png")));
+		hscores.setIcon(new ImageIcon(this.getClass().getResource("images/highscoresbutton.png")));
 		hscores.setOpaque(false);
+		hscores.setRolloverIcon(new ImageIcon(this.getClass().getResource("images/highscoresbutton_hover.png")));
 		hscores.setBorderPainted(false);
 		hscores.setContentAreaFilled(false);
 		hscores.setAlignmentX(Component.CENTER_ALIGNMENT);
 		//credits
 		credits = new JButton();
-		credits.setIcon(new ImageIcon(this.getClass().getResource("images/credits.png")));
+		credits.setIcon(new ImageIcon(this.getClass().getResource("images/credits_button.png")));
 		credits.setOpaque(false);
+		credits.setRolloverIcon(new ImageIcon(this.getClass().getResource("images/credits_button_hover.png")));
 		credits.setBorderPainted(false);
 		credits.setContentAreaFilled(false);
 		credits.setAlignmentX(Component.CENTER_ALIGNMENT);
 		//quit
 		quit = new JButton();
-		quit.setIcon(new ImageIcon(this.getClass().getResource("images/quit.png")));
+		quit.setIcon(new ImageIcon(this.getClass().getResource("images/quit_button.png")));
 		quit.setOpaque(false);
+		quit.setRolloverIcon(new ImageIcon(this.getClass().getResource("images/quit_button_hover.png")));
 		quit.setBorderPainted(false);
 		quit.setContentAreaFilled(false);
 		quit.setAlignmentX(Component.CENTER_ALIGNMENT);
 
 		//add the buttons
-		add(Box.createRigidArea(new Dimension(0,160)));
-		add( button1);
-		add(Box.createRigidArea(new Dimension(0,5)));
+		add(Box.createRigidArea(new Dimension(0,150)));
+		add( play);
+		add(Box.createRigidArea(new Dimension(0,15)));
 		add( settings);
-		add(Box.createRigidArea(new Dimension(0,5)));
 		add( tutorial);
-		add(Box.createRigidArea(new Dimension(0,5)));
 		add( hscores);
-		add(Box.createRigidArea(new Dimension(0,5)));
 		add( credits);
-		add(Box.createRigidArea(new Dimension(0,5)));
 		add( quit);
 	}
 
