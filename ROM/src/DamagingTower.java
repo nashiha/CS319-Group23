@@ -6,5 +6,6 @@ public class DamagingTower extends Tower {
         damage = 50;
         setupTime = 30;
         frequency = 1;
+        super.setup(setupTime);
     }
 }

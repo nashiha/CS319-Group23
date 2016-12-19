@@ -8,6 +8,7 @@ public class GameEngine {
 	private int difficulty;
 	private int soundLevel;
 	private int musicLevel;
+	private HighScoreManager highScoreManager = HighScoreManager.getInstance( );
 
 	public boolean startGame() {
 		// TODO - implement GameEngine.startGame
@@ -20,8 +21,9 @@ public class GameEngine {
 	}
 
 	public void endGame() {
-		// TODO - implement GameEngine.endGame
-		throw new UnsupportedOperationException();
+		String name = null;
+		// TODO - popup for name
+		highScoreManager.checkScore(name,score);
 	}
 
 	public void resumeGame() {

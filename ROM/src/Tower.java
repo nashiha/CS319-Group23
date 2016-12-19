@@ -1,9 +1,12 @@
+import java.util.Timer;
+
 public class Tower {
 
 	private Point towerPosition;
 	protected int range;
 	protected int damage;
-	protected int setupTime;
+    protected boolean ready;
+    protected int setupTime;
     protected int frequency;
     private int cost;
 	private int upgradeNo;
@@ -16,11 +19,23 @@ public class Tower {
 	    towerPosition.x = position.x;
 	    towerPosition.y = position.y;
 	    upgradeNo = 0;                  //tower is not upgraded
-
-
+        ready = false;
     }
 
-	public void upgrade() {
+    public void setup(int time){
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        ready = true;
+                    }
+                },
+                setupTime * 1000 //setup time seconds
+        );
+    }
+
+
+    public void upgrade() {
 		upgradeNo++;
 		switch (upgradeNo) {
             case (1):
@@ -49,9 +64,8 @@ public class Tower {
 		throw new UnsupportedOperationException();
 	}
 
-	public void isReady() {
-		// TODO - implement Tower.isReady
-		throw new UnsupportedOperationException();
+	public boolean isReady() {
+		return ready;
 	}
 
 }
