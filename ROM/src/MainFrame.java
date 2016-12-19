@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
 import java.awt.*;
+import java.io.IOException;
 import javax.swing.JPanel;
 
 /**
@@ -19,11 +20,23 @@ public class MainFrame {
 		frame.setVisible( true);
 		frame.setResizable(false);
 	}
-	public static void main(String[] args )
-	{
+	public static void main(String[] args ) throws IOException {
 		MainFrame frame;
 		frame = new MainFrame();
 		frame.createFrame();
 		System.out.println( "Hello.");
+
+		/* testing HighScoreManager
+		HighScoreManager tmp = HighScoreManager.getInstance( );
+		//tmp.checkScore("memi",23);
+		//tmp.checkScore("ali",13);
+		//tmp.checkScore("veli",53);
+		//tmp.checkScore("kirkdokuz",49);
+		tmp.checkScore("selam",1000);
+
+		String[] a = tmp.getHighScores();
+		for (int i = 0 ;i < 10 ; i++)
+			System.out.println(a[i]);
+			*/
 	}
 }

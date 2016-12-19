@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class HighScoreManager {
 
+	final private int SIZE = 10;
 	private int highScore;
 	private int scoreList;
 	private int name;
@@ -11,7 +12,6 @@ public class HighScoreManager {
 	private URL url;
 	private File file;
 	private String[] highScores;
-
 
 	public HighScoreManager(){
 		// opens and sets the file
@@ -21,7 +21,7 @@ public class HighScoreManager {
 		Scanner fileIn = null;
 		try {
 			fileIn = new Scanner(file);
-			for (int i = 0; i < 10;i++){
+			for (int i = 0; i < SIZE ;i++){
 				if (fileIn.hasNext())
 					highScores[i] = fileIn.nextLine();	// getting high scores from .txt file
 			}
@@ -41,15 +41,17 @@ public class HighScoreManager {
 		Scanner fileIn = null;
 		try {
 			fileIn = new Scanner(file);
-			for (int i = 0; i < 10;i++){
+			for (int i = 0; i < SIZE  ;i++){
 				String line = fileIn.nextLine();
-				int currentScore = Integer.parseInt(line.substring(0,line.indexOf(",")));
-				if (currentScore > score) {
-					for ( ; i + 1 < 10 ; i++){
-						highScores[i+1] = highScores[i];
+				String[] parts = line.split(",");
+				int currentScore = Integer.parseInt(parts[0]);
+				if (currentScore < score) {
+					for (int k = SIZE - 1; k + 1 != i && k > 0; k--){
+						highScores[k] = highScores[k-1]; //shifting the old values
 					}
-					highScores[i] = name + "," + score;
-					this.writeFile(i,name,score); // the score will be written in .txt file
+					highScores[i] = score + "," + name;
+					this.updateFile(); // the score will be written in .txt file
+					break;
 				}
 			}
 
@@ -59,21 +61,21 @@ public class HighScoreManager {
 			fileIn.close();
 		}
 
-		for (int i = 0 ; i < 10 ; i++){
-			System.out.println(highScores[i]);
-		}
-
 	}
 
-	public void writeFile(int index, String name, int score) {
+	public void updateFile() {
+		FileWriter writer=null;
 		try {
-			FileWriter fw = new FileWriter(file, false);
-			fw.write("test");
-
-			fw.close();
+			writer = new FileWriter(file, false);
+			for (int i = 0; i < SIZE ;i++){
+				String temp = highScores[i]+"\n";
+				writer.write(temp.toCharArray());
+			}
+			writer.close();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 	public String[] getHighScores() {
