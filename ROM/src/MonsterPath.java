@@ -9,9 +9,7 @@ import java.awt.event.ActionListener;
 import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 import java.util.*;
-/**
- * Created by Seyitoglu on 24.12.2016.
- */
+
 
 public class MonsterPath extends JPanel implements ActionListener {
     Image game_background;
@@ -19,6 +17,7 @@ public class MonsterPath extends JPanel implements ActionListener {
     private  MonsterPanel monsterPanel;
     private Monster monster;
     private int pathCheck;
+    private int startCheck;
     private TimerTask task;
     private int currentCheck = 0;
 
@@ -28,32 +27,38 @@ public class MonsterPath extends JPanel implements ActionListener {
         game_background = new ImageIcon(this.getClass().getResource("images/game_background.png")).getImage();
 
         pathCheck = 0;
-
+        startCheck = 0;
         monsterPanel = new MonsterPanel();
         monster = monsterPanel.getMonster();
+        JOptionPane.showMessageDialog(null,"you have 30 seconds to set up towers before the game begins!");
 
         timer = new Timer();
         task = new TimerTask() {
             @Override
             public void run() {
-                if(currentCheck < 135)
-                     monster.moveRight(1);
-                else if(currentCheck < 355 )
-                    monster.moveDown(1);
-                else if(currentCheck < 650)
-                    monster.moveRight(1);
-                else if(currentCheck < 970)
-                    monster.moveUp(1);
-                else if (currentCheck < 1250)
-                    monster.moveRight(1);
-                else if (currentCheck < 1610)
-                    monster.moveDown(1);
-                else if(currentCheck > 1700)
-                    monster.moveRight(1);
-                else
-                    JOptionPane.showMessageDialog(null,"Monster Reached the castle!!");
-                currentCheck++;
-                repaint();
+                if(startCheck < 30)
+                    startCheck++;
+                else {
+                    if(currentCheck < 135)
+                        monster.moveRight(1);
+                    else if(currentCheck < 355 )
+                        monster.moveDown(1);
+                    else if(currentCheck < 650)
+                        monster.moveRight(1);
+                    else if(currentCheck < 970)
+                        monster.moveUp(1);
+                    else if (currentCheck < 1250)
+                        monster.moveRight(1);
+                    else if (currentCheck < 1610)
+                        monster.moveDown(1);
+                    else if(currentCheck > 1700)
+                        monster.moveRight(1);
+                    else
+                        JOptionPane.showMessageDialog(null,"Monster Reached the castle!!");
+                    currentCheck++;
+                    repaint();
+                }
+
             }
         };
 
