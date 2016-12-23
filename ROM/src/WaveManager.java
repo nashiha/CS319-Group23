@@ -15,6 +15,6 @@ public class WaveManager {
 	public Wave createWave() {
 		//get difficulty from game engine
 		int dummy = 0;
-		return new Wave(currentWave,dummy);
+		return new Wave(currentWave++,dummy);
 	}
 }

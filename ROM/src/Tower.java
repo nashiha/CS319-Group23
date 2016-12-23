@@ -2,7 +2,8 @@ import java.util.Timer;
 
 public class Tower {
 
-	private Point towerPosition;
+	protected int x;
+	protected int y;
 	protected int range;
 	protected int damage;
     protected boolean ready;
@@ -15,9 +16,9 @@ public class Tower {
 	    upgradeNo = 0;
     }
 
-	public Tower(Point position){
-	    towerPosition.x = position.x;
-	    towerPosition.y = position.y;
+	public Tower(int x,int y){
+	    this.x = x;
+	    this.y = y;
 	    upgradeNo = 0;                  //tower is not upgraded
         ready = false;
     }
@@ -30,7 +31,7 @@ public class Tower {
                         ready = true;
                     }
                 },
-                setupTime * 1000 //setup time seconds
+                time * 1000 //setup time seconds
         );
     }
 
@@ -61,7 +62,7 @@ public class Tower {
 
 	public void attack() {
 		// TODO - implement Tower.attack
-		throw new UnsupportedOperationException();
+
 	}
 
 	public boolean isReady() {

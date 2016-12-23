@@ -1,6 +1,6 @@
-public class EasilyGeneratedTower extends Tower {
+public class EasilyGeneratedTower extends Tower{
 
-    public EasilyGeneratedTower(Point location){
+    public EasilyGeneratedTower(int x,int y){
         range = 100;
         damage = 10;
         setupTime = 1;
