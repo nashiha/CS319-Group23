@@ -1,3 +1,10 @@
+import javax.swing.*;
+import java.awt.*;
+
+/**
+ * Created by Seyitoglu on 24.12.2016.
+ */
+
 public class Monster {
 
 	protected int initialHealth;
@@ -6,10 +13,14 @@ public class Monster {
 	protected int damage;
 	private int xLoc;
 	private int yLoc;
+	private Image myImage;
+	int randomMe;
 
 	public Monster(){
+		randomMe = 0;
 		xLoc = 0;
-		yLoc = 0;
+		yLoc = 220;
+		myImage =  new ImageIcon(this.getClass().getResource("images/play.png")).getImage();
 	}
 
 	public void setXloc(int x) {
@@ -28,24 +39,27 @@ public class Monster {
 		return yLoc;
 	}
 
-	public void moveLeft() {
+	public void moveLeft(int howMuch) {
 
-		xLoc = xLoc -5;
-
-	}
-
-	public void moveRight() {
-
-		xLoc = xLoc  + 5;
+		xLoc = xLoc - howMuch;
+		int x;
 
 	}
 
-	public void moveDown() {
-		yLoc = yLoc + 5;
+	public void moveRight(int howMuch) {
+			xLoc = xLoc  + howMuch;
 	}
 
-	public void moveUp() {
-		yLoc = yLoc - 5;
+	public Image getImage() {
+		return myImage;
+	}
+
+	public void moveDown(int howMuch) {
+		yLoc = yLoc + howMuch;
+	}
+
+	public void moveUp(int howMuch) {
+		yLoc = yLoc - howMuch;
 	}
 
 	public void kill() {
