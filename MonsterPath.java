@@ -30,15 +30,15 @@ public class MonsterPath extends JPanel implements ActionListener {
         startCheck = 0;
         monsterPanel = new MonsterPanel();
         monster = monsterPanel.getMonster();
-        JOptionPane.showMessageDialog(null,"you have 30 seconds to set up towers before the game begins!");
-
+       // JOptionPane.showMessageDialog(null,"you have 30 seconds to set up towers before the game begins!");
+       // move();
         timer = new Timer();
         task = new TimerTask() {
             @Override
             public void run() {
-                if(startCheck < 30)
+               /* if(startCheck < 1)
                     startCheck++;
-                else {
+                else {*/
                     if(currentCheck < 135)
                         monster.moveRight(1);
                     else if(currentCheck < 355 )
@@ -57,7 +57,7 @@ public class MonsterPath extends JPanel implements ActionListener {
                         JOptionPane.showMessageDialog(null,"Monster Reached the castle!!");
                     currentCheck++;
                     repaint();
-                }
+               // }
 
             }
         };
@@ -67,7 +67,7 @@ public class MonsterPath extends JPanel implements ActionListener {
     }
 
     public void move() {
-        timer.scheduleAtFixedRate(task,100,100);
+        timer.scheduleAtFixedRate(task,50,50);
     }
 
 
@@ -84,6 +84,8 @@ public class MonsterPath extends JPanel implements ActionListener {
 
 
     }
+
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
