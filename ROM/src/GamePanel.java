@@ -13,6 +13,10 @@ public class GamePanel extends JPanel {
 	private JButton castleImage;
 	private JButton pauseButton;
 	private JLabel waveLabel;
+	private JButton button1;
+	private JButton button2;
+	private JButton button3;
+	private JButton button4;
 
 
 	public GamePanel() {

@@ -1,18 +1,40 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Shiha on 12/14/2016.
  */
-public class MainFrame {
+public class MainFrame{
     public JFrame frame;
-    public MainMenuPanel panel;//GamePanel panel;//MainMenuPanel panel;
+    public MainMenuPanel card1;
+    public GamePanel card2;
+    public JButton play;
+    //public GamePanel panel;//MainMenuPanel panel;
+    JPanel cards;
     public void createFrame() {
         frame = new JFrame( "Redeemers of the Monarchy");
         frame.setDefaultCloseOperation( frame.EXIT_ON_CLOSE);
         frame.setMinimumSize( new Dimension(1006,590));
-        panel = new MainMenuPanel();// new GamePanel();//new MainMenuPanel();
-        frame.add( panel);
+        //panel = new GamePanel();//new MainMenuPanel();
+        cards = new JPanel( new CardLayout());
+        card1 = new MainMenuPanel();
+        card2 = new GamePanel();
+        play = new JButton();
+        play = card1.getPlay();
+        cards.add(card1, "MainMenuPanel");
+        cards.add(card2, "GamePanel");
+        frame.getContentPane().add(cards);
+        play.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) cards.getLayout();
+                cardLayout.show(cards, "GamePanel");
+            }
+        });
+        //frame.add( panel);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible( true);
