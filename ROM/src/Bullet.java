@@ -4,7 +4,7 @@ public class Bullet {
 	private int speedY;
 	public static void main( String[] args)
 	{
-		System.out.println( "Hello.");
+		System.out.println( "Hello Me. www");
 	}
 
 }
