@@ -78,4 +78,8 @@ public class Monster {
 		throw new UnsupportedOperationException();
 	}
 
+	public int getInitialHealth() {
+		return initialHealth;
+	}
+
 }

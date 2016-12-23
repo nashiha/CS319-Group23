@@ -35,6 +35,9 @@ public class Tower {
         );
     }
 
+    public int getX(){return x;}
+    public int getY(){return y;}
+    public int getRange(){return range;}
 
     public void upgrade() {
 		upgradeNo++;
@@ -60,9 +63,9 @@ public class Tower {
         }
 	}
 
-	public void attack() {
+	public void attack(Monster monster) {
 		// TODO - implement Tower.attack
-
+        monster.damageMonster(this.damage);
 	}
 
 	public boolean isReady() {

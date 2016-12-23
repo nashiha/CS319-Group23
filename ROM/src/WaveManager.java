@@ -1,8 +1,11 @@
+import java.util.ArrayList;
+
 public class WaveManager {
 
 	private int currentWave;
 
 	private static WaveManager manager = new WaveManager( );
+	protected ArrayList<Wave> waves = new ArrayList<Wave>();
 
 	private WaveManager() {
 		currentWave = 1;
@@ -12,9 +15,14 @@ public class WaveManager {
 		return manager;
 	}
 
-	public Wave createWave() {
-		//get difficulty from game engine
+	public void createWave() {
+		//TODO get difficulty from game engine
 		int dummy = 0;
-		return new Wave(currentWave++,dummy);
+		Wave created = new Wave(currentWave, dummy);
+		currentWave++;
+		waves.add(created);
+	}
+	public ArrayList<Wave> getWaves(){
+		return waves;
 	}
 }

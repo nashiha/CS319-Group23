@@ -34,4 +34,10 @@ public class Wave {
 		}
 	}
 
+	public ArrayList<Monster> getMonsters(){
+		return monsters;
+	}
+
+
+
 }

@@ -7,24 +7,40 @@ import java.util.TimerTask;
  */
 public class TowerManager {
     private static TowerManager towerManager = new TowerManager();
-
-
-    ArrayList<Tower> towers = new ArrayList<Tower>();
-    private int temp = 1;
-
     public static TowerManager getInstance() {
         return towerManager;
     }
 
+
+    protected ArrayList<Tower> towers = new ArrayList<Tower>();
+    protected WaveManager waveManager = WaveManager.getInstance();
+    protected ArrayList<Monster> monsters;
+
+
     private TowerManager(){
         Timer timer = new Timer();
         timer.schedule(new checkTimer(), 0, 1000);
-        WaveManager waveManager = WaveManager.getInstance();
-
     }
 
     public void checkRanges(){
-
+        for (Tower t : towers) {
+            int tX = t.getX();
+            int tY = t.getY();
+            boolean foundForTower = false;
+            for (int i = 0 ; !foundForTower && i < waveManager.getWaves().size();i++) {
+                Wave w = waveManager.getWaves().get(i);
+                for (Monster m : w.getMonsters()) {
+                    int mX = m.getXloc();
+                    int mY = m.getYLoc();
+                    double distance = Math.sqrt((tX - mX) * (tX - mX) + (tY - mY) * (tY - mY));
+                    if (t.getRange() > (int) distance) {
+                        t.attack(m);
+                        foundForTower = true;
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     public void addTower(int type, int x, int y){
