@@ -15,12 +15,24 @@ public class Monster {
 	private int yLoc;
 	private Image myImage;
 	int randomMe;
+	private boolean isGenerated;
+	public int loc;
 
 	public Monster(){
+		isGenerated = false;
+
+		loc = 0;
 		randomMe = 0;
 		xLoc = 0;
 		yLoc = 220;
 		myImage =  new ImageIcon(this.getClass().getResource("/play.png")).getImage();
+	}
+
+	public boolean isGeneratedMonster() {
+		return isGenerated;
+	}
+	public void setGeneratedMonster(boolean g) {
+		isGenerated = g;
 	}
 
 	public void setXloc(int x) {
