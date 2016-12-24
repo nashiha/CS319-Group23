@@ -23,11 +23,13 @@ public class MonsterPath extends JPanel implements ActionListener {
     private boolean isTower2Ready;
     private boolean isTower3Ready;
     private boolean isTower4Ready;
+    private boolean isTower5Ready;
     JPanel innerPanel;
     private JButton tower1;
     private JButton tower2;
     private JButton tower3;
     private JButton tower4;
+    private JButton tower5;
 
 
     public MonsterPath() {
@@ -39,17 +41,20 @@ public class MonsterPath extends JPanel implements ActionListener {
         isTower2Ready = false;
         isTower3Ready = false;
         isTower4Ready = false;
+        isTower5Ready = false;
 
         game_background = new ImageIcon(this.getClass().getResource("images/game_background.png")).getImage();
         tower1 = new JButton("add tower");
         tower3 = new JButton("add tower");
         tower2 = new JButton("add tower");
         tower4 = new JButton("add tower");
+        tower5 = new JButton("add tower");
         setLayout(null);
         tower1.setBounds(100,200,100,20);
         tower2.setBounds(275,300,100,20);
         tower3.setBounds(300,400,100,20);
         tower4.setBounds(270,200,100,20);
+        tower5.setBounds(0,500,100,20);
 
 
         //tower1 action listener
@@ -101,6 +106,16 @@ public class MonsterPath extends JPanel implements ActionListener {
        });
         add(tower4);
 
+        tower5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(e.getSource() == tower5) {
+                    isTower5Ready = true;
+                    repaint();
+                }
+            }
+        });
+        add(tower5);
 
 //        add(innerPanel);
         pathCheck = 0;
@@ -176,6 +191,11 @@ public class MonsterPath extends JPanel implements ActionListener {
         if(isTower4Ready) {
             Image image1 = new ImageIcon(this.getClass().getResource("images/play.png")).getImage();
             g.drawImage(image1,320,100,null);
+        }
+
+        if(isTower5Ready) {
+            Image image1 = new ImageIcon(this.getClass().getResource("images/play.png")).getImage();
+            g.drawImage(image1,50,450,null);
         }
 
 
