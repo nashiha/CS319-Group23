@@ -15,12 +15,12 @@ public class WaveManager {
 		return manager;
 	}
 
-	public void createWave() {
+	public Wave createWave(int diff) {
 		//TODO get difficulty from game engine
-		int dummy = 0;
-		Wave created = new Wave(currentWave, dummy);
+		Wave created = new Wave(currentWave, diff);
 		currentWave++;
 		waves.add(created);
+		return created;
 	}
 	public ArrayList<Wave> getWaves(){
 		return waves;

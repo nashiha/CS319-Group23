@@ -14,14 +14,16 @@ public class MainFrame{
     public JButton play;
     //public GamePanel panel;//MainMenuPanel panel;
     JPanel cards;
-    public void createFrame() {
+    public void createFrame(GameEngine gm) {
+        gm.startGame();
+
         frame = new JFrame( "Redeemers of the Monarchy");
         frame.setDefaultCloseOperation( frame.EXIT_ON_CLOSE);
         frame.setMinimumSize( new Dimension(1006,590));
         //panel = new GamePanel();//new MainMenuPanel();
         cards = new JPanel( new CardLayout());
-        card1 = new MainMenuPanel();
-        card2 = new MonsterPath();
+        card1 = new MainMenuPanel(gm);
+        card2 = new MonsterPath(gm);
         card2.move();
         play = new JButton();
         play = card1.getPlay();
@@ -45,11 +47,13 @@ public class MainFrame{
     public static void main(String[] args )
     {
         MainFrame frame;
-        frame = new MainFrame();
-        frame.createFrame();
-        System.out.println( "Hello.");
         GameEngine gm = new GameEngine();
-        gm.startGame();
+        SoundManager sm = SoundManager.getInstance();
+        sm.playMusic();
+        frame = new MainFrame();
+        frame.createFrame(gm);
+        System.out.println( "Hello.");
+
     }
 }
 

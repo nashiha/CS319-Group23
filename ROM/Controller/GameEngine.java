@@ -26,11 +26,15 @@ public class GameEngine {
 	public void startGame() {
 		this.difficulty = settingsManager.getDifficulty();
 		this.waveNo = 0;
+		this.difficulty = 0;
 		this.coinCount = coinManager.getCoin();
 		this.soundLevel = settingsManager.getSoundLevel();
 		this.musicLevel = settingsManager.getMusicLevel();
-		soundManager.playMusic();
+	}
 
+	public Wave createWave(){
+		System.out.println("DIFF ISSS " + difficulty);
+		return waveManager.createWave(difficulty);
 	}
 
 
@@ -38,17 +42,17 @@ public class GameEngine {
 
 	    boolean canBuild = true;
 	    switch (type){
-            case (1):
+            case (1): //easily generated
                 if(coinCount<40) {
                     canBuild = false;
                 }
                 break;
-            case(2):
-            case(3):
+            case(2): //damaging
+            case(3): //range
                 if(coinCount<50)
                     canBuild =false;
                 break;
-            case(4):
+            case(4): //r&d
                 if(coinCount<100)
                     canBuild = false;
                 break;
@@ -56,7 +60,7 @@ public class GameEngine {
                 canBuild = false;
                 break;
         }
-        if (!canBuild){
+        if (!canBuild){ //not enough coin to build the tower
 	        //todo buzzer
             return;
         }
