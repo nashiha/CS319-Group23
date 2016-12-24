@@ -1,4 +1,6 @@
 import java.rmi.UnexpectedException;
+import java.util.ArrayList;
+import java.util.TimerTask;
 
 public class GameEngine {
 
@@ -16,6 +18,9 @@ public class GameEngine {
 	private SettingsManager settingsManager = SettingsManager.getInstance();
 	private CoinManager coinManager = CoinManager.getInstance();
 	private Castle castle = Castle.getInstance();
+	private TimerTask task;
+	protected ArrayList<Monster> myMonsters = new ArrayList<Monster>();
+	protected ArrayList<MonsterPanel> mnsPanel = new ArrayList<MonsterPanel>();
 
 	public static void main(String[] args )
 	{
@@ -23,13 +28,21 @@ public class GameEngine {
 		gameEngine.startGame();
 	}
 
-	public void startGame() {
+	public GameEngine(){
 		this.difficulty = settingsManager.getDifficulty();
 		this.waveNo = 0;
 		this.difficulty = 0;
 		this.coinCount = coinManager.getCoin();
 		this.soundLevel = settingsManager.getSoundLevel();
 		this.musicLevel = settingsManager.getMusicLevel();
+	}
+	public void startGame() {
+
+
+	}
+
+	public ArrayList<Monster> getMonsters(){
+		return myMonsters;
 	}
 
 	public Wave createWave(){
@@ -67,6 +80,10 @@ public class GameEngine {
 
         towerManager.addTower(x,y,type);
     }
+
+    public boolean isGameOver(){
+		return (castle.getCurrentHealth() > 0);
+	}
 
 	public boolean pauseGame() {
 		// TODO - implement GameEngine.pauseGame

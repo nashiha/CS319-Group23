@@ -29,7 +29,8 @@ public class MainFrame{
         card3 = new CreditsPanel();
         card4 = new HighScorePanel();
         card5 = new TutorialPanel();
-        card2.move();
+        SoundManager snd = SoundManager.getInstance();
+        snd.playMusic();
         JButton credits = card1.getCredits();
         JButton play = card1.getPlay();
         JButton hscores = card1.getHighScores();
@@ -47,6 +48,8 @@ public class MainFrame{
             {
                 CardLayout cardLayout = (CardLayout) cards.getLayout();
                 cardLayout.show(cards, "MonsterPanel");
+                card2.gameLoop();
+
             }
         });
         credits.addActionListener( new ActionListener()

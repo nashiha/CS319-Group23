@@ -23,6 +23,7 @@ public class GamePanel extends JPanel implements ActionListener {
     private TimerTask task;
     private ArrayList<Monster> myMonsters = new ArrayList<Monster>();
     private ArrayList<MonsterPanel> mnsPanel = new ArrayList<MonsterPanel>();
+    private ArrayList<TimerTask> tasks = new ArrayList<TimerTask>();
     JPanel innerPanel;
     private JButton tower1;
     private JButton tower2;
@@ -105,6 +106,8 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         });
         add(tower5);
+    }
+    public void gameLoop(){
 
         Wave cur = gm.createWave();
 
@@ -114,40 +117,69 @@ public class GamePanel extends JPanel implements ActionListener {
             mnsPanel.add(new MonsterPanel(m.getType(), m));
         }
 
+        this.move();
+
+        //todo wait 1 min
+        new java.util.Timer().schedule(
+                new java.util.TimerTask() {
+                    @Override
+                    public void run() {
+                        for (TimerTask t : tasks) {
+                            t.cancel();
+                            t = null;
+                        }
+
+                        timer.cancel();
+
+                        for (int i = mnsPanel.size(); i>0; i--)
+                            mnsPanel.remove(0);
+
+                        for (int i = myMonsters.size(); i>0; i--)
+                            myMonsters.remove(0);
+
+                        gameLoop();
+                    }
+                },
+               20000 //setup time seconds
+        );
+
 
 
     }
-
-        public void doTask(int count) {
-                Monster m = myMonsters.get(count);
-                m.setGeneratedMonster(true);
-                System.out.println(myMonsters.get(1).loc);
-                int speed = 1;
-                    if (m.loc < 135) {
-                        m.moveRight(speed);
-                    } else if (m.loc < 355) {
-                        m.moveDown(speed);
-                    } else if (m.loc < 650) {
-                        m.moveRight(speed);
-                    } else if (m.loc < 970) {
-                        m.moveUp(speed);
-                    } else if (m.loc < 1250) {
-                        m.moveRight(speed);
-                    } else if (m.loc < 1610) {
-                        m.moveDown(speed);
-                    } else if (m.loc > 1700) {
-                        m.moveRight(speed);
-                    } else {
-                       // JOptionPane.showMessageDialog(null, "Model.Monster Reached the castle!!");
-                    }
-                    m.loc++;
-                    repaint();
-        }
+    public void doTask(int count) {
+            Monster m = myMonsters.get(count);
+            if (m == null) return;
+            m.setGeneratedMonster(true);
+            int speed = 1;
+                if (m.loc < 135) {
+                    m.moveRight(speed);
+                } else if (m.loc < 355) {
+                    m.moveDown(speed);
+                } else if (m.loc < 650) {
+                    m.moveRight(speed);
+                } else if (m.loc < 970) {
+                    m.moveUp(speed);
+                } else if (m.loc < 1250) {
+                    m.moveRight(speed);
+                } else if (m.loc < 1610) {
+                    m.moveDown(speed);
+                } else if (m.loc > 1700) {
+                    m.moveRight(speed);
+                } else {
+                   // JOptionPane.showMessageDialog(null, "Model.Monster Reached the castle!!");
+                }
+                m.loc++;
+                repaint();
+    }
 
 
 
     public void move() {
+        System.out.print("Move is called");
+
+
         for (int monsterCount =0; monsterCount < myMonsters.size(); monsterCount++) {
+            System.out.print("Monster incoming");
             int finalMonsterCount = monsterCount;
             task = new TimerTask() {
                 @Override
@@ -155,16 +187,17 @@ public class GamePanel extends JPanel implements ActionListener {
                     doTask(finalMonsterCount);
                 }
             };
+            tasks.add(task);
+            timer = new Timer();
             if(myMonsters.get(monsterCount).getType() == 1)
-                timer.scheduleAtFixedRate(task, 10, 20);
+                timer.scheduleAtFixedRate(task, 10, 25);
             else
-                timer.scheduleAtFixedRate(task, 10, 12);
+                timer.scheduleAtFixedRate(task, 10, 20);
             try {
                 TimeUnit.SECONDS.sleep(2);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-
         }
     }
 

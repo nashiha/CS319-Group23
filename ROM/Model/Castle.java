@@ -19,4 +19,12 @@ public class Castle {
             // TODO end game
         }
     }
+
+    public int getCurrentHealth() {
+        return currentHealth;
+    }
+
+    public void setCurrentHealth(int currentHealth) {
+        this.currentHealth = currentHealth;
+    }
 }
