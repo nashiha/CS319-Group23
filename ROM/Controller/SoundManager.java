@@ -27,9 +27,18 @@ public class SoundManager {
 
 
 
-	public void playSound() {
-		// TODO - implement Controller.SoundManager.playSound
-		throw new UnsupportedOperationException();
+	public void playSound(String name) {
+
+		try{
+			Clip clip2 = AudioSystem.getClip();
+			InputStream in2 = SoundManager.class.getClassLoader().getResourceAsStream("sounds/" + name + ".wav");
+			AudioInputStream inputStream2 = AudioSystem.getAudioInputStream(in2);
+			clip2.open(inputStream2);
+			clip2.start();
+		} catch (Exception e) {
+				System.err.println(e.getMessage());
+		}
+
 	}
 
 	public void playMusic() {

@@ -28,7 +28,6 @@ public class GameEngine {
 		this.musicLevel = settingsManager.getMusicLevel();
 		soundManager.playMusic();
 
-
 	}
 
 	public boolean pauseGame() {
