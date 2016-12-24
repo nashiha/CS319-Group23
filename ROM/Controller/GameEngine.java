@@ -26,6 +26,7 @@ public class GameEngine {
 		this.coinCount = 200;
 		this.soundLevel = settingsManager.getSoundLevel();
 		this.musicLevel = settingsManager.getMusicLevel();
+		soundManager.playMusic();
 
 	}
 

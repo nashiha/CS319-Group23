@@ -48,6 +48,8 @@ public class MainFrame{
         frame = new MainFrame();
         frame.createFrame();
         System.out.println( "Hello.");
+        GameEngine gm = new GameEngine();
+        gm.startGame();
     }
 }
 
