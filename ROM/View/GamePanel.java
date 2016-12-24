@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.util.Timer;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
@@ -25,9 +24,8 @@ public class GamePanel extends JPanel implements ActionListener {
     private JButton tower2;
     private JButton tower3;
     private JButton tower4;
+    private boolean startedChecking = false;
     private JButton tower5;
-    private int curr = 0;
-    private int curr2 = 0;
     private GameEngine gm;
     private JButton random;
 
@@ -112,8 +110,14 @@ public class GamePanel extends JPanel implements ActionListener {
         for (Monster m : myMonsters) {
             mnsPanel.add(new MonsterPanel(m.getType(), m));
         }
-
+        TowerManager tw=TowerManager.getInstance();
+        tw.addTower(390,420,1);
         this.move();
+
+        if (!startedChecking){
+            tw.startChecking();
+            startedChecking = true;
+        }
 
         //todo wait 1 min
         new java.util.Timer().schedule(
@@ -143,29 +147,36 @@ public class GamePanel extends JPanel implements ActionListener {
 
     }
     public void doTask(int count) {
-            Monster m = myMonsters.get(count);
-            if (m == null) return;
+        Monster m = myMonsters.get(count);
+        if (m == null) { return;}
+        if (m.isDestroyed()) {
+            m.loc = 3600;
+            m.setYLoc(3000);
+            m.setXloc(3000);
+        }
+        else {
             m.setGeneratedMonster(true);
             int speed = 1;
-                if (m.loc < 135) {
-                    m.moveRight(speed);
-                } else if (m.loc < 355) {
-                    m.moveDown(speed);
-                } else if (m.loc < 650) {
-                    m.moveRight(speed);
-                } else if (m.loc < 970) {
-                    m.moveUp(speed);
-                } else if (m.loc < 1250) {
-                    m.moveRight(speed);
-                } else if (m.loc < 1610) {
-                    m.moveDown(speed);
-                } else if (m.loc > 1700) {
-                    m.moveRight(speed);
-                } else {
-                   // JOptionPane.showMessageDialog(null, "Model.Monster Reached the castle!!");
-                }
-                m.loc++;
-                repaint();
+            if (m.loc < 135) {
+                m.moveRight(speed);
+            } else if (m.loc < 355) {
+                m.moveDown(speed);
+            } else if (m.loc < 650) {
+                m.moveRight(speed);
+            } else if (m.loc < 970) {
+                m.moveUp(speed);
+            } else if (m.loc < 1250) {
+                m.moveRight(speed);
+            } else if (m.loc < 1610) {
+                m.moveDown(speed);
+            } else if (m.loc > 1700) {
+                m.moveRight(speed);
+            } else {
+                // JOptionPane.showMessageDialog(null, "Model.Monster Reached the castle!!");
+            }
+            m.loc++;
+        }
+        repaint();
     }
 
 

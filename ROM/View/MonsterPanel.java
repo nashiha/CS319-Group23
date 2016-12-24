@@ -68,6 +68,9 @@ public class MonsterPanel extends JPanel implements ActionListener{
         repaint();
     }//according to value in where moves the monster
 
+    public void makeVisible(){
+
+    }
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

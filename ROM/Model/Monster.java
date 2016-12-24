@@ -14,17 +14,18 @@ public class Monster {
 	protected int damage;
 	private int xLoc;
 	private int yLoc;
-	private Image myImage;
+	protected Image myImage;
 	int randomMe;
 	private boolean isGenerated;
 	public int loc;
+	private boolean destroyed;
 
 	public Monster(){
 		isGenerated = false;
-
 		loc = 0;
 		randomMe = 0;
 		xLoc = 0;
+		this.destroyed = false;
 		yLoc = 220;
 		myImage =  new ImageIcon(this.getClass().getResource("/play.png")).getImage();
 	}
@@ -56,6 +57,17 @@ public class Monster {
 		return type;
 	}
 
+	public Image getMyImage() {
+		return myImage;
+	}
+	public void setMyImage(String name){
+		this.myImage = new ImageIcon(this.getClass().getResource("/"+name+".png")).getImage();
+	}
+
+	public void destroy(){
+		destroyed = true;
+	}
+
 	public void setType(int type) {
 		this.type = type;
 	}
@@ -65,6 +77,14 @@ public class Monster {
 		xLoc = xLoc - howMuch;
 		int x;
 
+	}
+
+	public boolean isDestroyed() {
+		return destroyed;
+	}
+
+	public void setDestroyed(boolean destroyed) {
+		this.destroyed = destroyed;
 	}
 
 	public void moveRight(int howMuch) {
@@ -92,12 +112,9 @@ public class Monster {
 		currentHealth = currentHealth - damageTaken;
 		if(currentHealth <= 0) {
 			this.kill();
-			WaveManager w = WaveManager.getInstance();
-			w.remove(this);
-			CoinManager c = CoinManager.getInstance();
+			this.destroy();
 		}
 	}
-
 	public void damageCastle() {
 		// TODO - implement Model.Monster.damageCastle
 		throw new UnsupportedOperationException();

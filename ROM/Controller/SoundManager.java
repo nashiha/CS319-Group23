@@ -26,7 +26,6 @@ public class SoundManager {
 	}
 
 
-
 	public void playSound(String name) {
 
 		try{

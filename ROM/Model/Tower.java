@@ -70,4 +70,7 @@ public class Tower {
 		return ready;
 	}
 
+    public void setReady(boolean ready) {
+        this.ready = ready;
+    }
 }
