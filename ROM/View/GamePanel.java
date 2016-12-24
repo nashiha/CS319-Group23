@@ -33,7 +33,6 @@ public class GamePanel extends JPanel implements ActionListener {
     private Image image7;
     private Image image8;
     private Image image9;
-    private ImageIcon myIcon;
 
     Image game_background;
     private Timer timer = new Timer();
@@ -76,9 +75,7 @@ public class GamePanel extends JPanel implements ActionListener {
 
     public GamePanel(GameEngine gm) {
         //initilizing the inner panels
-
-        //myIcon =
-      //  innerTower1 = new ArrayList<JButton>();
+        innerTower1 = new ArrayList<JButton>();
         innerTower2 = new ArrayList<JButton>();
         innerTower3 = new ArrayList<JButton>();
         innerTower4 = new ArrayList<JButton>();
@@ -109,7 +106,6 @@ public class GamePanel extends JPanel implements ActionListener {
         tower11 = new JButton("add tower");
 
         setLayout(null);
-//        pauseButton.setBounds(0,0,40,40);
         tower1.setBounds(100, 200, 100, 20);
         tower2.setBounds(275, 300, 100, 20);
         tower3.setBounds(300, 400, 100, 20);
@@ -155,7 +151,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower9.get(2).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image9 = new ImageIcon(this.getClass().getResource("images/tower3.png")).getImage();
+                            image9 = new ImageIcon(this.getClass().getResource("images/tower-clipart-cliparti1_tower-clip-art_10.jpg.png")).getImage();
                             image9 = image9.getScaledInstance(70,150,Image.SCALE_DEFAULT);
                             tw.addTower(600,400,3);
 
@@ -165,7 +161,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower9.get(3).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image9 = new ImageIcon(this.getClass().getResource("images/tower4.png")).getImage();
+                            image9 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                             image9 = image9.getScaledInstance(70,150,Image.SCALE_DEFAULT);
                             tw.addTower(600,400,4);
 
@@ -228,7 +224,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower8.get(2).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image8 = new ImageIcon(this.getClass().getResource("images/tower3.png")).getImage();
+                            image8 = new ImageIcon(this.getClass().getResource("images/tower-clipart-cliparti1_tower-clip-art_10.jpg.png")).getImage();
                             image8 = image8.getScaledInstance(70,150,Image.SCALE_DEFAULT);
                             tw.addTower(800,330,2);
 
@@ -238,7 +234,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower8.get(3).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image8 = new ImageIcon(this.getClass().getResource("images/tower4.png")).getImage();
+                            image8 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                             image8 = image8.getScaledInstance(70,150,Image.SCALE_DEFAULT);
                             tw.addTower(800,330,3);
 
@@ -298,7 +294,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower7.get(2).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image7 = new ImageIcon(this.getClass().getResource("images/tower3.png")).getImage();
+                            image7 = new ImageIcon(this.getClass().getResource("images/tower-clipart-cliparti1_tower-clip-art_10.jpg.png")).getImage();
                             image7 = image7.getScaledInstance(70,150,Image.SCALE_DEFAULT);
                             tw.addTower(490,330,2);
 
@@ -308,7 +304,7 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower7.get(3).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image7 = new ImageIcon(this.getClass().getResource("images/tower4.png")).getImage();
+                            image7 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                             image7 = image7.getScaledInstance(70,150,Image.SCALE_DEFAULT);
                             tw.addTower(490,330,3);
 
@@ -352,7 +348,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             image6 = new ImageIcon(this.getClass().getResource("images/tower1.png")).getImage();
-                            tw.addTower(490,450,0);
+                            tw.addTower(490,470,0);
 
                         }
                     });
@@ -362,7 +358,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         public void actionPerformed(ActionEvent e) {
                             image6 = new ImageIcon(this.getClass().getResource("images/tower2.png")).getImage();
                             image6 = image6.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(490,450,1);
+                            tw.addTower(490,470,1);
 
                         }
                     });
@@ -370,9 +366,9 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower6.get(2).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image6 = new ImageIcon(this.getClass().getResource("images/tower3.png")).getImage();
+                            image6 = new ImageIcon(this.getClass().getResource("images/tower-clipart-cliparti1_tower-clip-art_10.jpg.png")).getImage();
                             image6 = image6.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(490,450,2);
+                            tw.addTower(490,470,2);
 
                         }
                     });
@@ -380,9 +376,9 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower6.get(3).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image6 = new ImageIcon(this.getClass().getResource("images/tower4.png")).getImage();
+                            image6 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                             image6 = image6.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(490,450,3);
+                            tw.addTower(490,470,3);
                         }
                     });
 
@@ -402,7 +398,7 @@ public class GamePanel extends JPanel implements ActionListener {
         });
         add(tower6);
         //tower1 action listener
-/*
+
         tower1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -419,7 +415,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             image1 = new ImageIcon(this.getClass().getResource("images/tower1.png")).getImage();
-                            tw.addTower(120,180,0);
+                            tw.addTower(100,200,0);
 
                         }
                     });
@@ -429,16 +425,16 @@ public class GamePanel extends JPanel implements ActionListener {
                         public void actionPerformed(ActionEvent e) {
                             image1 = new ImageIcon(this.getClass().getResource("images/tower2.png")).getImage();
                             image1 = image1.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(120,180,1);
+                            tw.addTower(100,200,1);
                         }
                     });
                     innerTower1.get(2).setBounds(140,180,20,20);
                     innerTower1.get(2).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image1 = new ImageIcon(this.getClass().getResource("images/tower3.png")).getImage();
+                            image1 = new ImageIcon(this.getClass().getResource("images/tower-clipart-cliparti1_tower-clip-art_10.jpg.png")).getImage();
                             image1 = image1.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(120,180,2);
+                            tw.addTower(100,200,2);
 
                         }
                     });
@@ -446,9 +442,9 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower1.get(3).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image1 = new ImageIcon(this.getClass().getResource("images/tower4.png")).getImage();
+                            image1 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                             image1 = image1.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(120,180,3);
+                            tw.addTower(100,200,3);
 
                         }
                     });
@@ -468,7 +464,7 @@ public class GamePanel extends JPanel implements ActionListener {
             }
         });
         add(tower1);
-*/ //Commented out
+
         //tower2 action listener
         tower2.addActionListener(new ActionListener() {
             @Override
@@ -486,7 +482,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             image2 = new ImageIcon(this.getClass().getResource("images/tower1.png")).getImage();
-                            tw.addTower(70,150,0);
+                            tw.addTower(275,300,0);
                         }
                     });
 
@@ -498,7 +494,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         public void actionPerformed(ActionEvent e) {
                             image2 = new ImageIcon(this.getClass().getResource("images/tower2.png")).getImage();
                             image2 = image2.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(70,150,1);
+                            tw.addTower(275,300,1);
 
                         }
                     });
@@ -511,9 +507,9 @@ public class GamePanel extends JPanel implements ActionListener {
                 innerTower2.get(2).addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        image2 = new ImageIcon(this.getClass().getResource("images/tower3.png")).getImage();
+                        image2 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                         image2 = image2.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                        tw.addTower(70,150,2);
+                        tw.addTower(275,300,2);
                     }
                 });
 
@@ -521,9 +517,9 @@ public class GamePanel extends JPanel implements ActionListener {
                 innerTower2.get(3).addActionListener(new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        image2 = new ImageIcon(this.getClass().getResource("images/tower4.png")).getImage();
+                        image2 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                         image2 = image2.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                        tw.addTower(70,150,3);
+                        tw.addTower(275,300,3);
                     }
                 });
 
@@ -564,7 +560,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             image3 = new ImageIcon(this.getClass().getResource("images/tower1.png")).getImage();
-                            tw.addTower(300,380,0);
+                            tw.addTower(300,400,0);
                         }
                     });
 
@@ -576,7 +572,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         public void actionPerformed(ActionEvent e) {
                             image3 = new ImageIcon(this.getClass().getResource("images/tower2.png")).getImage();
                             image3 = image3.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(300,380,1);
+                            tw.addTower(300,400,1);
                         }
                     });
 
@@ -586,9 +582,9 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower3.get(2).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image3 = new ImageIcon(this.getClass().getResource("images/tower3.png")).getImage();
+                            image3 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                             image3 = image3.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(300,380,2);
+                            tw.addTower(300,400,2);
 
                         }
                     });
@@ -597,9 +593,9 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower3.get(3).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image3= new ImageIcon(this.getClass().getResource("images/tower4.png")).getImage();
+                            image3= new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                             image3 = image3.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(300,380,3);
+                            tw.addTower(300,400,3);
                         }
                     });
 
@@ -636,7 +632,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             image4 = new ImageIcon(this.getClass().getResource("images/tower1.png")).getImage();
-                            tw.addTower(270,180,0);
+                            tw.addTower(270,200,0);
 
                         }
                     });
@@ -649,7 +645,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         public void actionPerformed(ActionEvent e) {
                             image4 = new ImageIcon(this.getClass().getResource("images/tower2.png")).getImage();
                             image4 = image4.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(270,180,1);
+                            tw.addTower(270,200,1);
                         }
                     });
 
@@ -657,9 +653,9 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower4.get(2).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image4 = new ImageIcon(this.getClass().getResource("images/tower3.png")).getImage();
+                            image4 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                             image4 = image4.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(270,180,2);
+                            tw.addTower(270,200,2);
                         }
                     });
 
@@ -667,9 +663,9 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower4.get(3).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image4 = new ImageIcon(this.getClass().getResource("images/tower4.png")).getImage();
+                            image4 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                             image4 = image4.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(270,180,3);
+                            tw.addTower(270,200,3);
                         }
                     });
 
@@ -710,7 +706,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         @Override
                         public void actionPerformed(ActionEvent e) {
                             image5 = new ImageIcon(this.getClass().getResource("images/tower1.png")).getImage();
-                            tw.addTower(0,480,0);
+                            tw.addTower(0,500,0);
                         }
                     });
 
@@ -722,7 +718,7 @@ public class GamePanel extends JPanel implements ActionListener {
                         public void actionPerformed(ActionEvent e) {
                             image5 = new ImageIcon(this.getClass().getResource("images/tower2.png")).getImage();
                             image5 = image5.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(0,480,1);
+                            tw.addTower(0,500,1);
                         }
                     });
 
@@ -730,9 +726,9 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower5.get(2).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image5 = new ImageIcon(this.getClass().getResource("images/tower3.png")).getImage();
+                            image5 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                             image5 = image5.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(0,480,2);
+                            tw.addTower(0,500,2);
 
                         }
                     });
@@ -741,9 +737,9 @@ public class GamePanel extends JPanel implements ActionListener {
                     innerTower5.get(3).addActionListener(new ActionListener() {
                         @Override
                         public void actionPerformed(ActionEvent e) {
-                            image5 = new ImageIcon(this.getClass().getResource("images/tower4.png")).getImage();
+                            image5 = new ImageIcon(this.getClass().getResource("images/elf_archer_tower_l.gif")).getImage();
                             image5 = image5.getScaledInstance(70,150,Image.SCALE_DEFAULT);
-                            tw.addTower(0,480,3);
+                            tw.addTower(0,500,3);
 
                         }
                     });
@@ -783,8 +779,6 @@ public class GamePanel extends JPanel implements ActionListener {
             tw.startChecking();
             startedChecking = true;
         }
-
-        //todo wait 1 min
         new java.util.Timer().schedule(
                 new java.util.TimerTask() {
                     @Override
@@ -804,7 +798,8 @@ public class GamePanel extends JPanel implements ActionListener {
                         gameLoop();
                     }
                 },
-               20000 //setup time seconds
+               60000 + 10 * gm.getWaveNo()
+                //setup time seconds
         );
 
     }
@@ -898,8 +893,6 @@ public class GamePanel extends JPanel implements ActionListener {
 
         g.drawImage(image8,800,150,null);
         g.drawImage(image9,640,270,null);
-
-        //g.drawImage(pauseButton.,3,3);
 
 
         for(int i = 0; i < myMonsters.size(); i++) {
