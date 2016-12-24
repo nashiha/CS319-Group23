@@ -194,8 +194,9 @@ public class MonsterPath extends JPanel implements ActionListener {
         }
 
         if(isTower5Ready) {
-            Image image1 = new ImageIcon(this.getClass().getResource("images/play.png")).getImage();
-            g.drawImage(image1,50,450,null);
+            Image image1 = new ImageIcon(this.getClass().getResource("")).getImage();
+            image1 = image1.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
+            g.drawImage(image1,0,450,null);
         }
 
 
