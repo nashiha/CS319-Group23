@@ -85,4 +85,14 @@ public class MainMenuPanel extends JPanel {
     public JButton getPlay() {
         return play;
     }
+    public JButton getCredits() {return credits;}
+    public JButton getHighScores() {
+        return hscores;
+    }
+    public JButton getQuit() {
+        return quit;
+    }
+    public JButton getTutorial() {
+        return tutorial;
+    }
 }
