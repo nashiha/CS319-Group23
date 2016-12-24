@@ -15,6 +15,7 @@ public class MainFrame{
     public HighScorePanel card4;
     public GamePanel card2;
     public TutorialPanel card5;
+    public SettingsPanel card6;
     //public GamePanel panel;//MainMenuPanel panel;
     JPanel cards;
     public void createFrame() {
@@ -29,6 +30,7 @@ public class MainFrame{
         card3 = new CreditsPanel();
         card4 = new HighScorePanel();
         card5 = new TutorialPanel();
+        card6 = new SettingsPanel();
         SoundManager snd = SoundManager.getInstance();
         snd.playMusic();
         JButton credits = card1.getCredits();
@@ -39,11 +41,14 @@ public class MainFrame{
         JButton backTutorial = card5.getBack();
         JButton backHighScore = card4.getBack();
         JButton backCredits = card3.getBack();
+        JButton backSettings = card6.getBack();
+        JButton settings = card1.getSettings();
         cards.add(card1, "MainMenuPanel");
         cards.add(card2, "MonsterPanel");
         cards.add(card3, "CreditsPanel");
         cards.add(card4, "HighScoresPanel");
         cards.add(card5, "TutorialPanel");
+        cards.add(card6, "SettingsPanel");
         frame.getContentPane().add(cards);
         play.addActionListener( new ActionListener()
         {
@@ -79,6 +84,14 @@ public class MainFrame{
                 cardLayout.show(cards, "TutorialPanel");
             }
         });
+        settings.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) cards.getLayout();
+                cardLayout.show(cards, "SettingsPanel");
+            }
+        });
         quit.addActionListener( new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
@@ -110,6 +123,14 @@ public class MainFrame{
                 cardLayout.show(cards, "MainMenuPanel");
             }
         });
+        backSettings.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) cards.getLayout();
+                cardLayout.show(cards, "MainMenuPanel");
+            }
+        });
         //frame.add( panel);
         frame.pack();
         frame.setLocationRelativeTo(null);
@@ -121,7 +142,6 @@ public class MainFrame{
         MainFrame frame;
         frame = new MainFrame();
         frame.createFrame();
-        System.out.println( "Hello.");
         GameEngine gm = new GameEngine();
         gm.startGame();
     }

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="SettingsPanel">
+  <grid id="27dc6" binding="innerPanel" layout-manager="GridLayoutManager" row-count="3" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="486"/>
+    </constraints>
+    <properties>
+      <opaque value="false"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="9a254" layout-manager="GridLayoutManager" row-count="7" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-7217932"/>
+        </properties>
+        <border type="line">
+          <color color="-14729411"/>
+        </border>
+        <children>
+          <component id="3d269" class="javax.swing.JButton" binding="settings">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <borderPainted value="false"/>
+              <contentAreaFilled value="false"/>
+              <focusPainted value="false"/>
+              <focusable value="false"/>
+              <icon value="settings_button_hover.png"/>
+              <opaque value="false"/>
+              <requestFocusEnabled value="false"/>
+              <text value=""/>
+              <verifyInputWhenFocusTarget value="false"/>
+            </properties>
+          </component>
+          <component id="75a3f" class="javax.swing.JLabel" binding="difficulty">
+            <constraints>
+              <grid row="1" column="0" row-span="3" col-span="1" vsize-policy="0" hsize-policy="0" anchor="9" fill="0" indent="2" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Calibri" size="16" style="1"/>
+              <foreground color="-14729411"/>
+              <text value="DIFFICULTY:"/>
+            </properties>
+          </component>
+          <component id="ec69b" class="javax.swing.JRadioButton" binding="easy">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-7217932"/>
+              <borderPainted value="false"/>
+              <font name="Calibri" size="12" style="0"/>
+              <foreground color="-14729411"/>
+              <text value="EASY"/>
+            </properties>
+          </component>
+          <component id="dc0c4" class="javax.swing.JRadioButton" binding="hard">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-7217932"/>
+              <font name="Calibri" size="12" style="0"/>
+              <foreground color="-14729411"/>
+              <text value="HARD"/>
+            </properties>
+          </component>
+          <component id="a7718" class="javax.swing.JRadioButton" binding="on">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-7217932"/>
+              <font name="Calibri" size="12" style="0"/>
+              <foreground color="-14729411"/>
+              <text value="ON"/>
+            </properties>
+          </component>
+          <component id="3019f" class="javax.swing.JLabel" binding="sound">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="2" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <font name="Calibri" size="16" style="1"/>
+              <foreground color="-14729411"/>
+              <text value="SOUND:"/>
+            </properties>
+          </component>
+          <component id="a67f6" class="javax.swing.JRadioButton" binding="off">
+            <constraints>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-7217932"/>
+              <font name="Calibri" size="12" style="0"/>
+              <foreground color="-14729411"/>
+              <text value="OFF"/>
+            </properties>
+          </component>
+          <component id="1b4c6" class="javax.swing.JRadioButton" binding="medium">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-7217932"/>
+              <font name="Calibri" size="12" style="0"/>
+              <foreground color="-14729411"/>
+              <text value="MEDIUM"/>
+            </properties>
+          </component>
+          <component id="37f9b" class="javax.swing.JSeparator">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-7217932"/>
+            </properties>
+          </component>
+          <component id="8b885" class="javax.swing.JTextArea" binding="textArea2" default-binding="true">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="3" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="10"/>
+              </grid>
+            </constraints>
+            <properties>
+              <background color="-7217932"/>
+              <editable value="false"/>
+              <enabled value="false"/>
+              <focusable value="false"/>
+              <requestFocusEnabled value="false"/>
+              <verifyInputWhenFocusTarget value="false"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <component id="8cb54" class="javax.swing.JButton" binding="back">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
+          <icon value="back_hover.png"/>
+          <opaque value="false"/>
+          <rolloverIcon value="back.png"/>
+          <text value=""/>
+          <verifyInputWhenFocusTarget value="false"/>
+        </properties>
+      </component>
+      <component id="d2e36" class="javax.swing.JTextArea" binding="textArea1" default-binding="true">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+            <preferred-size width="150" height="150"/>
+          </grid>
+        </constraints>
+        <properties>
+          <editable value="false"/>
+          <enabled value="false"/>
+          <opaque value="false"/>
+          <requestFocusEnabled value="false"/>
+          <verifyInputWhenFocusTarget value="false"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+  <buttonGroups>
+    <group name="difficultygroup">
+      <member id="ec69b"/>
+      <member id="dc0c4"/>
+      <member id="1b4c6"/>
+    </group>
+    <group name="soundGroup">
+      <member id="a7718"/>
+      <member id="a67f6"/>
+    </group>
+  </buttonGroups>
+</form>
