@@ -15,36 +15,6 @@
     </properties>
     <border type="none"/>
     <children>
-      <component id="6e509" class="javax.swing.JButton" binding="coinImage">
-        <constraints>
-          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="73" use-parent-layout="false">
-            <preferred-size width="78" height="161"/>
-          </grid>
-        </constraints>
-        <properties>
-          <alignmentX value="0.0"/>
-          <alignmentY value="0.0"/>
-          <borderPainted value="false"/>
-          <contentAreaFilled value="false"/>
-          <defaultCapable value="true"/>
-          <enabled value="true"/>
-          <focusPainted value="false"/>
-          <focusable value="false"/>
-          <font name="Calibri" size="12" style="1"/>
-          <horizontalAlignment value="4"/>
-          <horizontalTextPosition value="4"/>
-          <icon value="coin.png"/>
-          <iconTextGap value="0"/>
-          <margin top="0" left="0" bottom="0" right="0"/>
-          <opaque value="false"/>
-          <requestFocusEnabled value="false"/>
-          <text value="200"/>
-          <verifyInputWhenFocusTarget value="false"/>
-          <verticalAlignment value="1"/>
-          <verticalTextPosition value="0"/>
-          <visible value="true"/>
-        </properties>
-      </component>
       <component id="cd9ea" class="javax.swing.JLabel" binding="waveLabel">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false">
@@ -113,6 +83,36 @@
           <text value="200"/>
           <verifyInputWhenFocusTarget value="false"/>
           <verticalAlignment value="1"/>
+          <visible value="true"/>
+        </properties>
+      </component>
+      <component id="6e509" class="javax.swing.JButton" binding="coinImage">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="73" use-parent-layout="false">
+            <preferred-size width="78" height="161"/>
+          </grid>
+        </constraints>
+        <properties>
+          <alignmentX value="0.0"/>
+          <alignmentY value="0.0"/>
+          <borderPainted value="false"/>
+          <contentAreaFilled value="false"/>
+          <defaultCapable value="true"/>
+          <enabled value="true"/>
+          <focusPainted value="false"/>
+          <focusable value="false"/>
+          <font name="Calibri" size="12" style="1"/>
+          <horizontalAlignment value="4"/>
+          <horizontalTextPosition value="4"/>
+          <icon value="coin.png"/>
+          <iconTextGap value="0"/>
+          <margin top="0" left="0" bottom="0" right="0"/>
+          <opaque value="false"/>
+          <requestFocusEnabled value="false"/>
+          <text value="200"/>
+          <verifyInputWhenFocusTarget value="false"/>
+          <verticalAlignment value="1"/>
+          <verticalTextPosition value="0"/>
           <visible value="true"/>
         </properties>
       </component>

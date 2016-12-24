@@ -15,8 +15,15 @@ public class MonsterPanel extends JPanel implements ActionListener{
     private Timer timer;
     private int moveTracker;
     private GameEngine gm;
+    private JButton coin;
+    private JButton castle;
+    private JButton pause;
+    private JLabel wave;
+    private JPanel inner;
+    private JPanel innerPanel;
 
     public MonsterPanel(int type, Monster mon) {
+        this.add(inner);
         this.gm = gm;
         timer = new Timer(100,this);
         moveTracker = 0;

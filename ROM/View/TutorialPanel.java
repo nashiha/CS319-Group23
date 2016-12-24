@@ -7,6 +7,12 @@ public class TutorialPanel extends JPanel {
 	private JButton button2;
 	private JTextArea textArea1;
 
+	public JButton getBack() {
+		return back;
+	}
+
+	private JButton back;
+
 	public TutorialPanel() {
 		background = new ImageIcon(this.getClass().getResource("images/Menu_main_no_buttons.png")).getImage();
 		add(innerPanel);

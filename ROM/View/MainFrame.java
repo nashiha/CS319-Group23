@@ -36,6 +36,9 @@ public class MainFrame{
         JButton hscores = card1.getHighScores();
         JButton quit = card1.getQuit();
         JButton tutorial = card1.getTutorial();
+        JButton backTutorial = card5.getBack();
+        JButton backHighScore = card4.getBack();
+        JButton backCredits = card3.getBack();
         cards.add(card1, "MainMenuPanel");
         cards.add(card2, "MonsterPanel");
         cards.add(card3, "CreditsPanel");
@@ -81,6 +84,30 @@ public class MainFrame{
             public void actionPerformed(ActionEvent e)
             {
                 frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            }
+        });
+        backCredits.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) cards.getLayout();
+                cardLayout.show(cards, "MainMenuPanel");
+            }
+        });
+        backHighScore.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) cards.getLayout();
+                cardLayout.show(cards, "MainMenuPanel");
+            }
+        });
+        backTutorial.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) cards.getLayout();
+                cardLayout.show(cards, "MainMenuPanel");
             }
         });
         //frame.add( panel);
