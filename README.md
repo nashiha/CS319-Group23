@@ -1,10 +1,9 @@
 # CS319-Group23
 
 Group members:  
-1- Nashiha Ahmed  
-2- İzel Gürbüz   
-3- Efe Ulaş Akay Seyitoğlu  
-4- Erkam Berker Şenol   
+1- Nashiha Ahmed
+2- Efe Ulaş Akay Seyitoğlu  
+3- Erkam Berker Şenol   
 
 # Project:
 Our project is a "Tower Defense" type game. It will be a Java desktop application. 
@@ -22,3 +21,4 @@ Every Thursday at 15.40
 -20.10.16 meeting: Started Analysis part 2
 -25.10.16 meeting: Prepared Object & Class diagram together for Analysis part 2
 -27.10.16 meeting: Prepared other diagrams for Analysis part 2
+-The rest of the meetings went as planned.
