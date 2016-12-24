@@ -13,12 +13,10 @@ public class Castle {
 		return castle;
 	}
 
-	public static void damageCastle(int damage){
-		int health = Castle.getInstance().currentHealth;
-		health -= damage;
-		if(health < 0){
+	public void damageCastle(int damage){
+		this.currentHealth -= damage;
+		if(currentHealth < 0){
 			// TODO end game
 		}
-
 	}
 }

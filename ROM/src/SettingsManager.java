@@ -1,18 +1,42 @@
+/**
+ * Created by mac on 12/24/16.
+ */
 public class SettingsManager {
+    protected int difficulty;
+    protected int soundLevel;
+    protected int musicLevel;
 
-	public void setSoundLevel() {
-		// TODO - implement SettingsManager.setSoundLevel
-		throw new UnsupportedOperationException();
-	}
+    private static SettingsManager ourInstance = new SettingsManager();
 
-	public void setMusicLevel() {
-		// TODO - implement SettingsManager.setMusicLevel
-		throw new UnsupportedOperationException();
-	}
+    public static SettingsManager getInstance() {
+        return ourInstance;
+    }
 
-	public void setDifficulty() {
-		// TODO - implement SettingsManager.setDifficulty
-		throw new UnsupportedOperationException();
-	}
+    private SettingsManager() {
+        difficulty = 0;
+    }
 
+    public int getMusicLevel() {
+        return musicLevel;
+    }
+
+    public void setMusicLevel(int musicLevel) {
+        this.musicLevel = musicLevel;
+    }
+
+    public int getSoundLevel() {
+        return soundLevel;
+    }
+
+    public void setSoundLevel(int soundLevel) {
+        this.soundLevel = soundLevel;
+    }
+
+    public int getDifficulty() {
+        return difficulty;
+    }
+
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
+    }
 }

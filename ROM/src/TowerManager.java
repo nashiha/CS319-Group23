@@ -29,6 +29,7 @@ public class TowerManager {
             boolean foundForTower = false;
             for (int i = 0 ; !foundForTower && i < waveManager.getWaves().size();i++) {
                 Wave w = waveManager.getWaves().get(i);
+                if (w.getMonsters().size() == 0){ waveManager.getWaves().remove(w); }
                 for (Monster m : w.getMonsters()) {
                     int mX = m.getXloc();
                     int mY = m.getYLoc();
