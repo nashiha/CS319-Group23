@@ -20,32 +20,35 @@ public class SettingsPanel extends JPanel {
 	private JTextArea textArea2;
 	private String difficultyMode;
 	private String soundMode;
+	public SettingsManager settingsManager = SettingsManager.getInstance();
+	private GameEngine gm;
 
 	public JButton getBack() {
 		return back;
 	}
-	public SettingsPanel() {
+	public SettingsPanel(GameEngine gm) {
+		this.gm = gm;
 		background = new ImageIcon(this.getClass().getResource("images/Menu_main_no_buttons.png")).getImage();
 		add(innerPanel);
 		easy.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (easy.isSelected())
-					difficultyMode = "easy";
+					settingsManager.setDifficulty(-1,gm);
 			}
 		});
 		medium.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (medium.isSelected())
-					difficultyMode = "medium";
+					settingsManager.setDifficulty(0,gm);
 			}
 		});
 		hard.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (hard.isSelected())
-					difficultyMode = "hard";
+					settingsManager.setDifficulty(1,gm);
 			}
 		});
 
@@ -53,14 +56,14 @@ public class SettingsPanel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (on.isSelected())
-					soundMode = "on";
+					settingsManager.setSoundLevel(1,gm);
 			}
 		});
 		off.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (off.isSelected())
-					soundMode = "off";
+					settingsManager.setSoundLevel(1,gm);
 			}
 		});
 	}

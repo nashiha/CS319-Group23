@@ -5,6 +5,7 @@ public class SettingsManager {
     protected int difficulty;
     protected int soundLevel;
     protected int musicLevel;
+    public SoundManager sn = SoundManager.getInstance();
 
     private static SettingsManager ourInstance = new SettingsManager();
 
@@ -28,7 +29,12 @@ public class SettingsManager {
         return soundLevel;
     }
 
-    public void setSoundLevel(int soundLevel) {
+    public void setSoundLevel(int soundLevel, GameEngine g) {
+        if (soundLevel == 0)
+            sn.stopMusic();
+        else if(soundLevel == 1)
+            if (this.soundLevel!=1)
+                sn.playMusic();
         this.soundLevel = soundLevel;
     }
 
@@ -36,7 +42,8 @@ public class SettingsManager {
         return difficulty;
     }
 
-    public void setDifficulty(int difficulty) {
+    public void setDifficulty(int difficulty,GameEngine g) {
+        g.setDifficulty(difficulty);
         this.difficulty = difficulty;
     }
 }

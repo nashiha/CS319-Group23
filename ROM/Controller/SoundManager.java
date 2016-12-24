@@ -56,5 +56,6 @@ public class SoundManager {
 	}
 	public void stopMusic(){
 		clip.close();
+		clip.drain();
 	}
 }

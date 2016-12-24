@@ -50,9 +50,7 @@ public class TowerManager {
                             System.out.println(m.currentHealth);
                             System.out.println(m.getXloc()+"  "+ m.getYLoc() );
 
-
                             t.setReady(false);
-                            break;
                         }
                     }
                 }
