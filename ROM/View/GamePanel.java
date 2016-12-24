@@ -214,8 +214,6 @@ public class GamePanel extends JPanel implements ActionListener {
         g.drawImage(game_background, 0, 0, null);
         for (int i = 0 ; i < mnsPanel.size() ;i++)
             g.drawImage(mnsPanel.get(i).returnMonsterImage(), myMonsters.get(i).getXloc(), myMonsters.get(i).getYLoc(), null);
-
-
             Image image1 = new ImageIcon(this.getClass().getResource("images/animated_tower_4[1].gif")).getImage();
             g.drawImage(image1,30,80,null);
 
