@@ -10,17 +10,12 @@ import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
 import java.util.Timer;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 public class MonsterPath extends JPanel implements ActionListener {
     Image game_background;
     private Timer timer = new Timer();
-    private TimerTask task = new TimerTask() {
-        @Override
-        public void run() {
-            doTask();
-        }
-    };
-
+    private TimerTask task;
     private Timer timer2;
     private TimerTask task2;
     private int currentCheck2;
@@ -138,46 +133,53 @@ public class MonsterPath extends JPanel implements ActionListener {
 
     }
 
-        public void doTask() {
-            for (int i = 0; i < myMonsters.size(); i++) {
-                myMonsters.get(i).setGeneratedMonster(true);
+        public void doTask(int count) {
+                Monster m = myMonsters.get(count);
+                m.setGeneratedMonster(true);
+                System.out.println(myMonsters.get(1).loc);
 
-                    if (myMonsters.get(i).loc < 135) {
-                        myMonsters.get(i).moveRight(1);
-                    } else if (myMonsters.get(i).loc < 355) {
-                        myMonsters.get(i).moveDown(1);
-
-                    } else if (myMonsters.get(i).loc < 650) {
-                        myMonsters.get(i).moveRight(1);
-                    } else if (myMonsters.get(i).loc < 970) {
-                        myMonsters.get(i).moveUp(1);
-                    } else if (myMonsters.get(i).loc < 1250) {
-                        myMonsters.get(i).moveRight(1);
-                    } else if (myMonsters.get(i).loc < 1610) {
-                        myMonsters.get(i).moveDown(1);
-                    } else if (myMonsters.get(i).loc > 1700) {
-                        myMonsters.get(i).moveRight(1);
+                    if (m.loc < 135) {
+                        m.moveRight(1);
+                    } else if (m.loc < 355) {
+                        m.moveDown(1);
+                    } else if (m.loc < 650) {
+                        m.moveRight(1);
+                    } else if (m.loc < 970) {
+                        m.moveUp(1);
+                    } else if (m.loc < 1250) {
+                        m.moveRight(1);
+                    } else if (m.loc < 1610) {
+                        m.moveDown(1);
+                    } else if (m.loc > 1700) {
+                        m.moveRight(1);
                     } else {
                         JOptionPane.showMessageDialog(null, "Model.Monster Reached the castle!!");
                     }
 
                     currentCheck++;
-                    myMonsters.get(i).loc++;
+                    m.loc++;
                     repaint();
-
-            }
         }
 
 
 
     public void move() {
-        new TimerTask() {
-            @Override
-            public void run() {
-                doTask();
+        for (int monsterCount =0; monsterCount < myMonsters.size(); monsterCount++) {
+            int finalMonsterCount = monsterCount;
+            task = new TimerTask() {
+                @Override
+                public void run() {
+                    doTask(finalMonsterCount);
+                }
+            };
+            timer.scheduleAtFixedRate(task, 20, 20);
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
-        };
-        timer.scheduleAtFixedRate(task,20,20);
+
+        }
     }
 
 
@@ -216,6 +218,7 @@ public class MonsterPath extends JPanel implements ActionListener {
            // image1 = image1.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
             g.drawImage(image1,70,400,null);
         }
+        //todo wait 2 seconds
 
         for(int i = 0; i < myMonsters.size(); i++) {
             if(myMonsters.get(i).isGeneratedMonster())
