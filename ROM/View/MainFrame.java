@@ -13,7 +13,7 @@ public class MainFrame{
     public CreditsPanel card3;
     //public GamePanel caqrd2;
     public HighScorePanel card4;
-    public MonsterPath card2;
+    public GamePanel card2;
     public TutorialPanel card5;
     //public GamePanel panel;//MainMenuPanel panel;
     JPanel cards;
@@ -23,8 +23,9 @@ public class MainFrame{
         frame.setMinimumSize( new Dimension(1006,590));
         //panel = new GamePanel();//new MainMenuPanel();
         cards = new JPanel( new CardLayout());
-        card1 = new MainMenuPanel();
-        card2 = new MonsterPath();
+        GameEngine gm = new GameEngine();
+        card1 = new MainMenuPanel(gm);
+        card2 = new GamePanel(gm);
         card3 = new CreditsPanel();
         card4 = new HighScorePanel();
         card5 = new TutorialPanel();
