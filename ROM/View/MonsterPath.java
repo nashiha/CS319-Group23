@@ -142,8 +142,8 @@ public class MonsterPath extends JPanel implements ActionListener {
         myMonsters[0] = monsterPanel2.getMonster();
         myMonsters[1] = monsterPanel3.getMonster();
         myMonsters[2] = monsterPanel2.getMonster();
-        myMonsters[3] = monsterPanel2.getMonster();
-        myMonsters[4] = monsterPanel2.getMonster();
+        myMonsters[3] = monsterPanel3.getMonster();
+        myMonsters[4] = monsterPanel3.getMonster();
         //JOptionPane.showMessageDialog(null,"you have 30 seconds to set up towers before the game begins!");
 
 
@@ -152,18 +152,19 @@ public class MonsterPath extends JPanel implements ActionListener {
             @Override
             public void run() {
               /*  if(startCheck < 30)
-                    startCheck++;
+           /*         startCheck++;
                 else {*/
-            for(int i = 0; i < 3; i++) {
+
+
+            for(int i = 0; i < 5; i++) {
                 myMonsters[i].setGeneratedMonster(true);
-                if(currentCheck>60 + i*10) {
-                    isSecMonsterTReady = true;
+                System.out.println(currentCheck);
+               // if(currentCheck>60) {
                     if(myMonsters[i].loc < 135) {
                         myMonsters[i].moveRight(1);
                     }
                     else if(myMonsters[i].loc  < 355 ){
                         myMonsters[i].moveDown(1);
-                        System.out.println(currentCheck);
 
                     }
                     else if(myMonsters[i].loc  < 650) {
@@ -176,24 +177,23 @@ public class MonsterPath extends JPanel implements ActionListener {
                         myMonsters[i].moveRight(1);
                     }
                     else if (myMonsters[i].loc < 1610) {
-                        myMonsters[0].moveDown(1);
+                        myMonsters[i].moveDown(1);
                     }
-                    else if(myMonsters[i].loc > 1700) {
+                    else if(myMonsters[i].loc < 1700) {
                         myMonsters[i].moveRight(1);
                     }
                     else{
                         JOptionPane.showMessageDialog(null,"Model.Monster Reached the castle!!");
                     }
-
+                    currentCheck++;
                     myMonsters[i].loc++;
                     repaint();
-                }
+             //   }
 
-            }
+           // }
+                
 
-
-/*
-                if(currentCheck>160) {
+             /*   if(currentCheck>160) {
                     isThirdMonsterReady = true;
                     if(curr2 < 135) {
                         myMonsters[1].moveRight(1);
@@ -227,10 +227,10 @@ public class MonsterPath extends JPanel implements ActionListener {
                 }
 
 
-
-
 */
 
+
+/*
                 if(currentCheck < 135) {
                         monster.moveRight(1);
                     }
@@ -261,24 +261,19 @@ public class MonsterPath extends JPanel implements ActionListener {
                     currentCheck++;
                     repaint();
 
-              //  }
+              //  }  */
+              }
 
             }
         };
 
 
-
-
-
-
-
-
     }
 
     public void move() {
-        timer.scheduleAtFixedRate(task,20,20);
-        if(isSecMonsterTReady)
-            timer.scheduleAtFixedRate(task2,30,30);
+        timer.scheduleAtFixedRate(task,100,100);
+       // if(isSecMonsterTReady)
+        //    timer.scheduleAtFixedRate(task2,30,30);
     }
 
 
@@ -288,7 +283,7 @@ public class MonsterPath extends JPanel implements ActionListener {
     public void paintComponent(Graphics g) {
         g.drawImage(game_background, 0, 0, null);
 
-        g.drawImage(monsterPanel.returnMonsterImage(), monster.getXloc(), monster.getYLoc(), null);
+  //      g.drawImage(monsterPanel.returnMonsterImage(), monster.getXloc(), monster.getYLoc(), null);
 
         if(isTower1Ready) {
             Image image1 = new ImageIcon(this.getClass().getResource("images/animated_tower_4[1].gif")).getImage();
@@ -330,7 +325,6 @@ public class MonsterPath extends JPanel implements ActionListener {
       /*  if(isThirdMonsterReady) {
             g.drawImage(monsterPanel3.returnMonsterImage(), myMonsters[1].getXloc(), myMonsters[1].getYLoc(), null);
         }*/
-
 
 
     }
