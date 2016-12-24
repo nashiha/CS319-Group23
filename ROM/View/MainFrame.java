@@ -2,6 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 
 /**
  * Created by Shiha on 12/14/2016.
@@ -9,9 +10,11 @@ import java.awt.event.ActionListener;
 public class MainFrame{
     public JFrame frame;
     public MainMenuPanel card1;
-    public GamePanel caqrd2;
+    public CreditsPanel card3;
+    //public GamePanel caqrd2;
+    public HighScorePanel card4;
     public MonsterPath card2;
-    public JButton play;
+    public TutorialPanel card5;
     //public GamePanel panel;//MainMenuPanel panel;
     JPanel cards;
     public void createFrame() {
@@ -22,11 +25,20 @@ public class MainFrame{
         cards = new JPanel( new CardLayout());
         card1 = new MainMenuPanel();
         card2 = new MonsterPath();
+        card3 = new CreditsPanel();
+        card4 = new HighScorePanel();
+        card5 = new TutorialPanel();
         card2.move();
-        play = new JButton();
-        play = card1.getPlay();
+        JButton credits = card1.getCredits();
+        JButton play = card1.getPlay();
+        JButton hscores = card1.getHighScores();
+        JButton quit = card1.getQuit();
+        JButton tutorial = card1.getTutorial();
         cards.add(card1, "MainMenuPanel");
         cards.add(card2, "MonsterPanel");
+        cards.add(card3, "CreditsPanel");
+        cards.add(card4, "HighScoresPanel");
+        cards.add(card5, "TutorialPanel");
         frame.getContentPane().add(cards);
         play.addActionListener( new ActionListener()
         {
@@ -34,6 +46,37 @@ public class MainFrame{
             {
                 CardLayout cardLayout = (CardLayout) cards.getLayout();
                 cardLayout.show(cards, "MonsterPanel");
+            }
+        });
+        credits.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) cards.getLayout();
+                cardLayout.show(cards, "CreditsPanel");
+            }
+        });
+        hscores.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) cards.getLayout();
+                cardLayout.show(cards, "HighScoresPanel");
+            }
+        });
+        tutorial.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                CardLayout cardLayout = (CardLayout) cards.getLayout();
+                cardLayout.show(cards, "TutorialPanel");
+            }
+        });
+        quit.addActionListener( new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
             }
         });
         //frame.add( panel);
