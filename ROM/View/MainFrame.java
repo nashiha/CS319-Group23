@@ -9,29 +9,31 @@ import java.awt.event.ActionListener;
 public class MainFrame{
     public JFrame frame;
     public MainMenuPanel card1;
-    public GamePanel card2;
+    public GamePanel caqrd2;
+    public MonsterPath card2;
     public JButton play;
-    //public View.GamePanel panel;//View.MainMenuPanel panel;
+    //public GamePanel panel;//MainMenuPanel panel;
     JPanel cards;
     public void createFrame() {
         frame = new JFrame( "Redeemers of the Monarchy");
         frame.setDefaultCloseOperation( frame.EXIT_ON_CLOSE);
         frame.setMinimumSize( new Dimension(1006,590));
-        //panel = new View.GamePanel();//new View.MainMenuPanel();
+        //panel = new GamePanel();//new MainMenuPanel();
         cards = new JPanel( new CardLayout());
         card1 = new MainMenuPanel();
-        card2 = new GamePanel();
+        card2 = new MonsterPath();
+        card2.move();
         play = new JButton();
         play = card1.getPlay();
-        cards.add(card1, "View.MainMenuPanel");
-        cards.add(card2, "View.GamePanel");
+        cards.add(card1, "MainMenuPanel");
+        cards.add(card2, "MonsterPanel");
         frame.getContentPane().add(cards);
         play.addActionListener( new ActionListener()
         {
             public void actionPerformed(ActionEvent e)
             {
                 CardLayout cardLayout = (CardLayout) cards.getLayout();
-                cardLayout.show(cards, "View.GamePanel");
+                cardLayout.show(cards, "MonsterPanel");
             }
         });
         //frame.add( panel);
@@ -49,8 +51,8 @@ public class MainFrame{
     }
 }
 
-		/* testing Controller.HighScoreManager
-		Controller.HighScoreManager tmp = Controller.HighScoreManager.getInstance( );
+		/* testing HighScoreManager
+		HighScoreManager tmp = HighScoreManager.getInstance( );
 		//tmp.checkScore("memi",23);
 		//tmp.checkScore("ali",13);
 		//tmp.checkScore("veli",53);
