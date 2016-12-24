@@ -63,14 +63,18 @@ public class Monster {
 	}
 
 	public void kill() {
-		// TODO - implement Model.Monster.kill
-		throw new UnsupportedOperationException();
+
+
 	}
 
 	public void damageMonster(int damageTaken){
 		currentHealth = currentHealth - damageTaken;
-		if(currentHealth <= 0)
+		if(currentHealth <= 0) {
 			this.kill();
+			WaveManager w = WaveManager.getInstance();
+			w.remove(this);
+			CoinManager c = CoinManager.getInstance();
+		}
 	}
 
 	public void damageCastle() {

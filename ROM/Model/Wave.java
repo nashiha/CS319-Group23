@@ -38,6 +38,9 @@ public class Wave {
 		return monsters;
 	}
 
+	public void remove(Monster m){
+		monsters.remove(m);
+	}
 
 
 }

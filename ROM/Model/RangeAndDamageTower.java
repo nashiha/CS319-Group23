@@ -6,6 +6,7 @@ public class RangeAndDamageTower extends Tower {
         damage = 10;
         setupTime = 5;
         frequency = 3;
+        cost = 100;
         super.setup(setupTime);
     }
 }

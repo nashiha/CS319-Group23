@@ -25,4 +25,11 @@ public class WaveManager {
 	public ArrayList<Wave> getWaves(){
 		return waves;
 	}
+
+	public void remove(Monster mon){
+		for(Wave w : waves)
+			for(Monster m : w.getMonsters())
+				if (mon == m)
+					w.getMonsters().remove(mon);
+	}
 }
