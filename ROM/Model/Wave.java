@@ -7,7 +7,7 @@ public class Wave {
 	private int monsterFreq;
 	private int waveTimer;
 	private int waveDuration;
-	protected ArrayList<Monster> monsters;
+	protected ArrayList<Monster> monsters = new ArrayList<Monster>();
 
 	public Wave(int waveNo, int difficulty){
 		int size = 0;
@@ -20,7 +20,7 @@ public class Wave {
 		else if (difficulty == -1){// easy
 			size = waveNo*2;
 		}
-/*
+
 		for (int i = 0; i < size; i++ ){
 			int num = 1 + (int)(Math.random() * 5);
 
@@ -31,7 +31,7 @@ public class Wave {
 				monsters.add(new DamagingMonster());
 			else
 				monsters.add(new SpeedyMonster());
-		} */
+		}
 	}
 
 	public ArrayList<Monster> getMonsters(){

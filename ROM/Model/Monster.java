@@ -10,6 +10,7 @@ public class Monster {
 	protected int initialHealth;
 	protected int currentHealth;
 	protected int speed;
+	protected int type;
 	protected int damage;
 	private int xLoc;
 	private int yLoc;
@@ -49,6 +50,14 @@ public class Monster {
 
 	public int getYLoc() {
 		return yLoc;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 	public void moveLeft(int howMuch) {

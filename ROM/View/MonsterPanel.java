@@ -14,21 +14,25 @@ public class MonsterPanel extends JPanel implements ActionListener{
     private Monster monster;
     private Timer timer;
     private int moveTracker;
+    private GameEngine gm;
 
-
-
-    public MonsterPanel() {
-
+    public MonsterPanel(int type, Monster mon) {
+        this.gm = gm;
         timer = new Timer(100,this);
         moveTracker = 0;
         timer.start();
+        this.monster = mon;
         try{
-            monsterImage = new ImageIcon(this.getClass().getResource("/Monster 3.png")).getImage();
+            if (type == 1)
+                monsterImage = new ImageIcon(this.getClass().getResource("/Monster 1.png")).getImage();
+            else if (type ==2)
+                monsterImage = new ImageIcon(this.getClass().getResource("/Monster 2.png")).getImage();
+            else if (type == 3)
+                monsterImage = new ImageIcon(this.getClass().getResource("/Monster 3.png")).getImage();
             monsterImage = monsterImage.getScaledInstance(50, 50,Image.SCALE_DEFAULT);
         }catch (Exception e) {
             JOptionPane.showMessageDialog(this,"Error occured in loading background!");
         }
-        monster = new Monster();
         repaint();
 
         /*timer = new Timer(5, e -> {
@@ -64,62 +68,11 @@ public class MonsterPanel extends JPanel implements ActionListener{
         monster.moveRight(100);
         g.drawImage(monsterImage, monster.getXloc(), 500, null);
         int x = 0;
-
-
-
-
-
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
-         /*
-        try {
-
-            TimeUnit.SECONDS.sleep(1);
-
-        } catch (InterruptedException e1) {
-
-            e1.printStackTrace();
-
-        }        */
-    /*
-       if(moveTracker == 0)    {
-        monster.moveRight(10);
-        moveTracker = 1;
-       } else if(moveTracker == 1) {
-         moveTracker = 0;
-         monster.moveDown(5);
-       }
-
-
-
-         */
-
-
-
-
-        //monster.moveDown(11);
-
-
-        //monster.moveDown(5);
-
-
-
-
-
-
-        //monster.moveDown(5);
-
-
-
-
-
-
-
-         revalidate();
+        revalidate();
         repaint();
-
     }
 }

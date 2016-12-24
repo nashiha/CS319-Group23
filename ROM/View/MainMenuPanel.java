@@ -12,11 +12,12 @@ public class MainMenuPanel extends JPanel {
     private JButton hscores;
     private JButton credits;
     private JButton quit;
+    private GameEngine gm;
 
-    public MainMenuPanel() {
+    public MainMenuPanel(GameEngine gm) {
         setLayout( new BoxLayout(this, BoxLayout.Y_AXIS));
         background = new ImageIcon(this.getClass().getResource("images/Menu_main_no_buttons.png")).getImage();
-
+        this.gm = gm;
         //play
         play = new JButton();
         play.setOpaque(false);

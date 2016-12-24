@@ -5,5 +5,6 @@ public class SpeedyAndDamagingMonster extends Monster {
         initialHealth = 100;
         speed = 200;
         damage = 200;
+        type = 3;
     }
 }
