@@ -20,7 +20,7 @@ public class Wave {
 		else if (difficulty == -1){// easy
 			size = waveNo*2;
 		}
-
+/*
 		for (int i = 0; i < size; i++ ){
 			int num = 1 + (int)(Math.random() * 5);
 
@@ -31,7 +31,7 @@ public class Wave {
 				monsters.add(new DamagingMonster());
 			else
 				monsters.add(new SpeedyMonster());
-		}
+		} */
 	}
 
 	public ArrayList<Monster> getMonsters(){
@@ -40,6 +40,21 @@ public class Wave {
 
 	public void remove(Monster m){
 		monsters.remove(m);
+	}
+
+	public Monster generateMonsters() {
+
+
+		int num = 1 + (int)(Math.random() * 5);
+
+
+		// creating list with 0.2 probability of speedy and damaging monster, 0.4 damaging monster and 0.4 speedy monster
+		if(num ==5)
+			return new SpeedyAndDamagingMonster();
+		else if ( num > 2)
+			return new DamagingMonster();
+		else
+			return new SpeedyMonster();
 	}
 
 
