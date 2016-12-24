@@ -96,4 +96,7 @@ public class MainMenuPanel extends JPanel {
     public JButton getTutorial() {
         return tutorial;
     }
+    public JButton getSettings() {
+        return settings;
+    }
 }

@@ -13,10 +13,6 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 public class GamePanel extends JPanel implements ActionListener {
-    private JButton coinImage;
-    private JButton castleImage;
-    private JButton pauseButton;
-    private JLabel waveLabel;
 
     Image game_background;
     private Timer timer = new Timer();
@@ -33,9 +29,10 @@ public class GamePanel extends JPanel implements ActionListener {
     private int curr = 0;
     private int curr2 = 0;
     private GameEngine gm;
-
+    private JButton random;
 
     public GamePanel(GameEngine gm) {
+        add(innerPanel);
         this.gm = gm;
         game_background = new ImageIcon(this.getClass().getResource("/game_background.png")).getImage();
         game_background = new ImageIcon(this.getClass().getResource("images/game_background.png")).getImage();
@@ -50,7 +47,6 @@ public class GamePanel extends JPanel implements ActionListener {
         tower3.setBounds(300, 400, 100, 20);
         tower4.setBounds(270, 200, 100, 20);
         tower5.setBounds(0, 500, 100, 20);
-
 
         //tower1 action listener
         tower1.addActionListener(new ActionListener() {
@@ -205,7 +201,6 @@ public class GamePanel extends JPanel implements ActionListener {
     @Override
     public void paintComponent(Graphics g) {
         g.drawImage(game_background, 0, 0, null);
-
         for (int i = 0 ; i < mnsPanel.size() ;i++)
             g.drawImage(mnsPanel.get(i).returnMonsterImage(), myMonsters.get(i).getXloc(), myMonsters.get(i).getYLoc(), null);
 
