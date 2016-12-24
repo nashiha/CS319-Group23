@@ -44,9 +44,12 @@ public class TowerManager {
         }
     }
 
-    public void addTower(int type, int x, int y){
+    public void addTower(int x, int y, int type){
         Tower created;
-        if (type == 1){
+        if(type == 0){
+            created = new EasilyGeneratedTower(x,y);
+        }
+        else if (type == 1){
             created = new DamagingTower(x,y);
         }
         else if (type == 2){

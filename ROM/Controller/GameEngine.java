@@ -1,3 +1,5 @@
+import java.rmi.UnexpectedException;
+
 public class GameEngine {
 
 	private int score;
@@ -12,6 +14,7 @@ public class GameEngine {
 	private WaveManager waveManager = WaveManager.getInstance();
 	private SoundManager soundManager = SoundManager.getInstance();
 	private SettingsManager settingsManager = SettingsManager.getInstance();
+	private CoinManager coinManager = CoinManager.getInstance();
 	private Castle castle = Castle.getInstance();
 
 	public static void main(String[] args )
@@ -23,12 +26,43 @@ public class GameEngine {
 	public void startGame() {
 		this.difficulty = settingsManager.getDifficulty();
 		this.waveNo = 0;
-		this.coinCount = 200;
+		this.coinCount = coinManager.getCoin();
 		this.soundLevel = settingsManager.getSoundLevel();
 		this.musicLevel = settingsManager.getMusicLevel();
 		soundManager.playMusic();
 
 	}
+
+
+    public void addTower(int x, int y, int type) {
+
+	    boolean canBuild = true;
+	    switch (type){
+            case (1):
+                if(coinCount<40) {
+                    canBuild = false;
+                }
+                break;
+            case(2):
+            case(3):
+                if(coinCount<50)
+                    canBuild =false;
+                break;
+            case(4):
+                if(coinCount<100)
+                    canBuild = false;
+                break;
+            default:
+                canBuild = false;
+                break;
+        }
+        if (!canBuild){
+	        //todo buzzer
+            return;
+        }
+
+        towerManager.addTower(x,y,type);
+    }
 
 	public boolean pauseGame() {
 		// TODO - implement GameEngine.pauseGame
@@ -51,10 +85,6 @@ public class GameEngine {
 		throw new UnsupportedOperationException();
 	}
 
-	public void addTower() {
-		// TODO - implement GameEngine.addTower
-		throw new UnsupportedOperationException();
-	}
 
 	public void upgradeTower() {
 		// TODO - implement GameEngine.upgradeTower

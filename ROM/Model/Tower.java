@@ -7,7 +7,7 @@ public class Tower {
     protected boolean ready;
     protected int setupTime;
     protected int frequency;
-    private int cost;
+    protected int cost;
 	private int upgradeNo;
 
 	public Tower(){

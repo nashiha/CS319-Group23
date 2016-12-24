@@ -5,6 +5,7 @@ public class EasilyGeneratedTower extends Tower {
         damage = 10;
         setupTime = 1;
         frequency = 1;
+        cost = 40;
         super.setup(setupTime);
     }
 
