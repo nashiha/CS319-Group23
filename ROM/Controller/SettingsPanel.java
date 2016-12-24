@@ -1,3 +1,4 @@
+
 public class SettingsPanel {
 
 	public void turnSoundOff() {

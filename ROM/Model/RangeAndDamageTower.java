@@ -3,7 +3,7 @@ public class RangeAndDamageTower extends Tower {
     public RangeAndDamageTower(int x, int y){
         super(x,y);
         range = 100;
-        damage = 10;
+        damage = 50;
         setupTime = 5;
         frequency = 3;
         cost = 100;

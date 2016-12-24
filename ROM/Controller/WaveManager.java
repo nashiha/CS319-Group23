@@ -26,10 +26,7 @@ public class WaveManager {
 		return waves;
 	}
 
-	public void remove(Monster mon){
-		for(Wave w : waves)
-			for(Monster m : w.getMonsters())
-				if (mon == m)
-					w.getMonsters().remove(mon);
+	public int getCurrentWave() {
+		return currentWave;
 	}
 }

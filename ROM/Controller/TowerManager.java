@@ -15,29 +15,45 @@ public class TowerManager {
     protected ArrayList<Tower> towers = new ArrayList<Tower>();
     protected WaveManager waveManager = WaveManager.getInstance();
     protected ArrayList<Monster> monsters;
-
+    private int waveNo;
 
     private TowerManager(){
+
+    }
+    public void startChecking(){
         Timer timer = new Timer();
-        timer.schedule(new checkTimer(), 0, 1000);
+        timer.schedule(new checkTimer(), 0, 2000);
     }
 
     public void checkRanges(){
+        System.out.println("check");
         for (Tower t : towers) {
-            int tX = t.getX();
-            int tY = t.getY();
-            boolean foundForTower = false;
-            for (int i = 0 ; !foundForTower && i < waveManager.getWaves().size();i++) {
-                Wave w = waveManager.getWaves().get(i);
-                if (w.getMonsters().size() == 0){ waveManager.getWaves().remove(w); }
-                for (Monster m : w.getMonsters()) {
-                    int mX = m.getXloc();
-                    int mY = m.getYLoc();
-                    double distance = Math.sqrt((tX - mX) * (tX - mX) + (tY - mY) * (tY - mY));
-                    if (t.getRange() > (int) distance) {
-                        t.attack(m);
-                        foundForTower = true;
-                        break;
+            t.setReady(true);
+        }
+        for (int i = 0 ;i < waveManager.getWaves().size();i++) {
+            Wave w = waveManager.getWaves().get(i);
+            //if (w.getMonsters().size() == 0){ waveManager.getWaves().remove(w); }
+            for (Monster m : w.getMonsters()) {
+                int mX = m.getXloc();
+                int mY = m.getYLoc();
+                if (m.isDestroyed()) continue;
+                for (Tower t : towers) {
+                    if(t.isReady()) {
+                        int tX = t.getX();
+                        int tY = t.getY();
+                        double distance = Math.sqrt((tX - mX) * (tX - mX) + (tY - mY) * (tY - mY));
+                        if (t.getRange() > (int) distance) {
+                            System.out.println("hit1");
+                            System.out.println(m.currentHealth);
+                            t.attack(m);
+                            System.out.println("hit2");
+                            System.out.println(m.currentHealth);
+                            System.out.println(m.getXloc()+"  "+ m.getYLoc() );
+
+
+                            t.setReady(false);
+                            break;
+                        }
                     }
                 }
             }
