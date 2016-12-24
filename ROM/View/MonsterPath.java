@@ -13,8 +13,16 @@ import java.util.*;
 public class MonsterPath extends JPanel implements ActionListener {
     Image game_background;
     private Timer timer;
+    private Timer timer2;
+    private TimerTask task2;
+    private boolean isSecMonsterTReady;
+    private boolean isThirdMonsterReady;
+    private int currentCheck2;
     private MonsterPanel monsterPanel;
+    private MonsterPanel monsterPanel2;
+    private MonsterPanel monsterPanel3;
     private Monster monster;
+    private Monster[] myMonsters;
     private int pathCheck;
     private int startCheck;
     private TimerTask task;
@@ -30,11 +38,16 @@ public class MonsterPath extends JPanel implements ActionListener {
     private JButton tower3;
     private JButton tower4;
     private JButton tower5;
+    private int curr = 0;
+    private int curr2 = 0;
 
 
     public MonsterPath() {
 
         game_background = new ImageIcon(this.getClass().getResource("/game_background.png")).getImage();
+        isSecMonsterTReady = false;
+        isThirdMonsterReady = false;
+        currentCheck2 = 0;
 
         //tower set to false initially
         isTower1Ready = false;
@@ -117,12 +130,22 @@ public class MonsterPath extends JPanel implements ActionListener {
         });
         add(tower5);
 
+
 //        add(innerPanel);
         pathCheck = 0;
         startCheck = 0;
         monsterPanel = new MonsterPanel();
+        monsterPanel2 = new MonsterPanel();
+        monsterPanel3 = new MonsterPanel();
         monster = monsterPanel.getMonster();
+        myMonsters = new Monster[5];
+        myMonsters[0] = monsterPanel2.getMonster();
+        myMonsters[1] = monsterPanel3.getMonster();
+        myMonsters[2] = monsterPanel2.getMonster();
+        myMonsters[3] = monsterPanel2.getMonster();
+        myMonsters[4] = monsterPanel2.getMonster();
         //JOptionPane.showMessageDialog(null,"you have 30 seconds to set up towers before the game begins!");
+
 
         timer = new Timer();
         task = new TimerTask() {
@@ -131,22 +154,110 @@ public class MonsterPath extends JPanel implements ActionListener {
               /*  if(startCheck < 30)
                     startCheck++;
                 else {*/
-                    if(currentCheck < 135)
-                        monster.moveRight(1);
-                    else if(currentCheck < 355 )
-                        monster.moveDown(1);
-                    else if(currentCheck < 650)
-                        monster.moveRight(1);
-                    else if(currentCheck < 970)
-                        monster.moveUp(1);
-                    else if (currentCheck < 1250)
-                        monster.moveRight(1);
-                    else if (currentCheck < 1610)
-                        monster.moveDown(1);
-                    else if(currentCheck > 1700)
-                        monster.moveRight(1);
-                    else
+            for(int i = 0; i < 3; i++) {
+                myMonsters[i].setGeneratedMonster(true);
+                if(currentCheck>60 + i*10) {
+                    isSecMonsterTReady = true;
+                    if(myMonsters[i].loc < 135) {
+                        myMonsters[i].moveRight(1);
+                    }
+                    else if(myMonsters[i].loc  < 355 ){
+                        myMonsters[i].moveDown(1);
+                        System.out.println(currentCheck);
+
+                    }
+                    else if(myMonsters[i].loc  < 650) {
+                        myMonsters[i].moveRight(1);
+                    }
+                    else if(myMonsters[i].loc  < 970) {
+                        myMonsters[i].moveUp(1);
+                    }
+                    else if (myMonsters[i].loc  < 1250) {
+                        myMonsters[i].moveRight(1);
+                    }
+                    else if (myMonsters[i].loc < 1610) {
+                        myMonsters[0].moveDown(1);
+                    }
+                    else if(myMonsters[i].loc > 1700) {
+                        myMonsters[i].moveRight(1);
+                    }
+                    else{
                         JOptionPane.showMessageDialog(null,"Model.Monster Reached the castle!!");
+                    }
+
+                    myMonsters[i].loc++;
+                    repaint();
+                }
+
+            }
+
+
+/*
+                if(currentCheck>160) {
+                    isThirdMonsterReady = true;
+                    if(curr2 < 135) {
+                        myMonsters[1].moveRight(1);
+                    }
+                    else if(curr2 < 355 ){
+                        myMonsters[1].moveDown(1);
+                        System.out.println(currentCheck);
+
+                    }
+                    else if(curr2 < 650) {
+                        myMonsters[1].moveRight(1);
+                    }
+                    else if(curr2 < 970) {
+                        myMonsters[1].moveUp(1);
+                    }
+                    else if (curr2 < 1250) {
+                        myMonsters[1].moveRight(1);
+                    }
+                    else if (curr2 < 1610) {
+                        myMonsters[1].moveDown(1);
+                    }
+                    else if(curr2 > 1700) {
+                        myMonsters[1].moveRight(1);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"Model.Monster Reached the castle!!");
+                    }
+
+                    curr2++;
+                    repaint();
+                }
+
+
+
+
+*/
+
+                if(currentCheck < 135) {
+                        monster.moveRight(1);
+                    }
+                    else if(currentCheck < 355 ){
+                        monster.moveDown(1);
+                        System.out.println(currentCheck);
+
+                    }
+                    else if(currentCheck < 650) {
+                        monster.moveRight(1);
+                    }
+                    else if(currentCheck < 970) {
+                        monster.moveUp(1);
+                    }
+                    else if (currentCheck < 1250) {
+                        monster.moveRight(1);
+                    }
+                    else if (currentCheck < 1610) {
+                        monster.moveDown(1);
+                    }
+                    else if(currentCheck > 1700) {
+                        monster.moveRight(1);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"Model.Monster Reached the castle!!");
+                    }
+
                     currentCheck++;
                     repaint();
 
@@ -157,10 +268,17 @@ public class MonsterPath extends JPanel implements ActionListener {
 
 
 
+
+
+
+
+
     }
 
     public void move() {
-        timer.scheduleAtFixedRate(task,50,50);
+        timer.scheduleAtFixedRate(task,20,20);
+        if(isSecMonsterTReady)
+            timer.scheduleAtFixedRate(task2,30,30);
     }
 
 
@@ -173,31 +291,45 @@ public class MonsterPath extends JPanel implements ActionListener {
         g.drawImage(monsterPanel.returnMonsterImage(), monster.getXloc(), monster.getYLoc(), null);
 
         if(isTower1Ready) {
-            Image image1 = new ImageIcon(this.getClass().getResource("images/play.png")).getImage();
-            g.drawImage(image1,30,100,null);
+            Image image1 = new ImageIcon(this.getClass().getResource("images/animated_tower_4[1].gif")).getImage();
+            g.drawImage(image1,30,80,null);
 
         }
 
         if(isTower2Ready) {
-            Image image1 = new ImageIcon(this.getClass().getResource("images/play.png")).getImage();
-            g.drawImage(image1,200,200,null);
+            Image image1 = new ImageIcon(this.getClass().getResource("images/animated_tower_4[1].gif")).getImage();
+            g.drawImage(image1,200,190,null);
         }
 
         if(isTower3Ready) {
-            Image image1 = new ImageIcon(this.getClass().getResource("images/play.png")).getImage();
-            g.drawImage(image1,310,280,null);
+            Image image1 = new ImageIcon(this.getClass().getResource("images/animated_tower_4[1].gif")).getImage();
+            g.drawImage(image1,310,260,null);
         }
 
         if(isTower4Ready) {
-            Image image1 = new ImageIcon(this.getClass().getResource("images/play.png")).getImage();
-            g.drawImage(image1,320,100,null);
+            Image image1 = new ImageIcon(this.getClass().getResource("images/animated_tower_4[1].gif")).getImage();
+            g.drawImage(image1,320,80,null);
         }
 
         if(isTower5Ready) {
-            Image image1 = new ImageIcon(this.getClass().getResource("")).getImage();
-            image1 = image1.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
-            g.drawImage(image1,0,450,null);
+            Image image1 = new ImageIcon(this.getClass().getResource("images/animated_tower_4[1].gif")).getImage();
+           // image1 = image1.getScaledInstance(100, 100,Image.SCALE_DEFAULT);
+            g.drawImage(image1,70,400,null);
         }
+
+        for(int i = 0; i < myMonsters.length; i++) {
+            if(myMonsters[i].isGeneratedMonster())
+                g.drawImage(monsterPanel.returnMonsterImage(), myMonsters[i].getXloc(), myMonsters[i].getYLoc(), null);
+        }
+
+        /*if(isSecMonsterTReady) {
+            g.drawImage(monsterPanel2.returnMonsterImage(), myMonsters[0].getXloc(), myMonsters[0].getYLoc(), null);
+        }*/
+
+
+      /*  if(isThirdMonsterReady) {
+            g.drawImage(monsterPanel3.returnMonsterImage(), myMonsters[1].getXloc(), myMonsters[1].getYLoc(), null);
+        }*/
 
 
 
