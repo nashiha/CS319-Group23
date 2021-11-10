@@ -1,5 +1,5 @@
 # CS319-Group23
-![alt text](https://github.com/nashiha/CS319-Group23/ROM/View/images/RoM_UI.png?raw=true)
+![alt text](https://github.com/nashiha/CS319-Group23/blob/master/ROM/View/images/RoM_UI.png?raw=true)
 Group members:  
 1- Nashiha Ahmed
 2- Efe Ulaş Akay Seyitoğlu  
